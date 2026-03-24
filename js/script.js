@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize all functionality
     initThemeToggle();
+    initRtlToggle();
     initMobileMenu();
     initActiveNavigation();
     initFormValidation();
@@ -27,6 +28,34 @@ function initThemeToggle() {
             const next = current === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', next);
             localStorage.setItem('coffeeTheme', next);
+        });
+    });
+}
+
+
+// ===== RTL Toggle =====
+function initRtlToggle() {
+    const html = document.documentElement;
+    const rtlBtns = document.querySelectorAll('#rtl-toggle, .rtl-btn');
+
+    // Apply saved layout
+    const savedRtl = localStorage.getItem('coffeeRtl') === 'true';
+    if (savedRtl) {
+        html.setAttribute('dir', 'rtl');
+    } else {
+        html.removeAttribute('dir');
+    }
+
+    rtlBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const isRtl = html.getAttribute('dir') === 'rtl';
+            if (isRtl) {
+                html.removeAttribute('dir');
+                localStorage.setItem('coffeeRtl', 'false');
+            } else {
+                html.setAttribute('dir', 'rtl');
+                localStorage.setItem('coffeeRtl', 'true');
+            }
         });
     });
 }

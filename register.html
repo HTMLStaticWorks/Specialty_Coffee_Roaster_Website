@@ -19,23 +19,21 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/logo-icon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <!-- Additional CSS for Register Page -->
     <style>
         /* Update to professional fonts */
         :root {
-            --font-primary: 'Dancing Script', cursive;;
-            --font-secondary: 'Caveat', cursive;;
+            --font-primary: 'Times New Roman', Times, serif;
+            --font-secondary: 'Times New Roman', Times, serif;
         }
 
         /* Full viewport layout - no scrolling */
         .auth-page-wrapper {
-            min-height: calc(100vh - 80px);
-            min-height: calc(100dvh - 80px);
+            /* Inherits shared calc from style.css */
             display: flex;
             flex-direction: column;
-            overflow: hidden;
         }
 
         .auth-content {
@@ -314,16 +312,29 @@
     </style>
 </head>
 
-<body>
+<body class="auth-page-body">
+
     <!-- Header -->
-    <header class="header">
+    <header class="header auth-header">
         <nav class="nav-container">
-            <a href="index.html" class="logo" style="margin: 0 auto; text-decoration: none;">
-                <div class="logo-icon"><img src="images/logo-icon.png" alt="Brewora Logo"></div>
+            <!-- Centered Header Logo/Brand -->
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <div class="logo-icon">
+                    <svg class="logo-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                        <line x1="6" y1="1" x2="6" y2="4"></line>
+                        <line x1="10" y1="1" x2="10" y2="4"></line>
+                        <line x1="14" y1="1" x2="14" y2="4"></line>
+                    </svg>
+                </div>
                 <span>Brewora</span>
             </a>
         </nav>
     </header>
+
+
+
 
     <div class="auth-page-wrapper">
         <!-- Main Content -->
@@ -337,9 +348,7 @@
 
                     <form class="auth-form" id="registerForm">
                         <h3>Create Account</h3>
-                        <p class="welcome-sentence">Start your journey with us. Join the community of coffee
-                            connoisseurs.</p>
-
+                        
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName" class="form-label">First Name</label>
@@ -380,7 +389,7 @@
 
                         <div class="form-checkbox">
                             <input type="checkbox" id="terms" name="terms" required>
-                            <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
+                            <label for="terms">I agree the Terms of Service and Privacy Policy</label>
                         </div>
 
                         <div class="form-checkbox">
