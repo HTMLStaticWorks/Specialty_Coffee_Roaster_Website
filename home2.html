@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Roastery Experience - Brewora</title>
+    <meta name="description"
+        content="Discover our coffee roasting process, specialty beans, and brewing experience at Brewora">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Caveat:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo-icon.png">
+
+    <!-- Additional CSS for Home 2 -->
+    <style>
+        .process-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent-gold);
+            transform: translateX(-50%);
+        }
+
+        .process-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+            border-radius: 15px;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .process-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 248, 240, 0.7));
+            z-index: 0;
+        }
+
+        .process-item>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .process-content {
+            flex: 1;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 15px;
+            box-shadow: var(--shadow-medium);
+            margin: 0 2rem;
+        }
+
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-brown);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .beans-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .bean-card {
+            background: var(--bg-card);
+            color: var(--text-dark);
+            padding: 0;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 320px;
+            box-shadow: var(--shadow-light);
+        }
+
+        .bean-card-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bean-card-content {
+            padding: 1.5rem;
+        }
+
+        .bean-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .bean-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .bean-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .brewing-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .brewing-card {
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 0;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+        }
+
+        .brewing-card-image {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .brewing-card-content {
+            padding: 1.5rem;
+        }
+
+        .brewing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .brewing-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light-cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, rgba(255, 248, 240, 0.95), rgba(255, 240, 230, 0.95)),
+                url('images/roastery/roasting-process.jpg') center/cover;
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--cream), var(--light-cream));
+            opacity: 0.9;
+            z-index: 0;
+        }
+
+        .story-section>.container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn.btn-primary:hover {
+            color: #2C1810;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-content h3 {
+            color: var(--primary-brown);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-image {
+            background: linear-gradient(135deg, var(--light-brown), var(--secondary-brown));
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            color: var(--white);
+            font-size: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .process-timeline::before {
+                left: 20px;
+            }
+
+            .process-item {
+                flex-direction: column !important;
+                padding-left: 60px;
+            }
+
+            .process-item:nth-child(even) {
+                flex-direction: column !important;
+            }
+
+            .process-icon {
+                left: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .process-content {
+                margin: 0;
+                width: 100%;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-content-alt h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <div class="logo-icon">B</div>
+                <span>Brewora</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li class="mobile-theme-toggle theme-toggle-btn">
+                    <span>Theme</span>
+                    <button class="theme-btn" aria-label="Toggle dark mode">
+                        <span class="theme-icon-light">☀️</span>
+                        <span class="theme-icon-dark">🌙</span>
+                    </button>
+                </li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="home2.html" class="nav-link active">Home 2</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+<li><a href="menu.html" class="nav-link">Offerings</a></li>
+                        <li><a href="about.html" class="nav-link">Heritage</a></li>
+<li><a href="contact.html" class="nav-link">Connect</a></li>
+<li><a href="gallery.html" class="nav-link">Showcase</a></li>
+<li><a href="blog.html" class="nav-link">Insights</a></li>
+                <li><a href="register.html" class="btn btn-primary nav-btn">SignUp</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">
+                    <span class="theme-icon-light">☀️</span>
+                    <span class="theme-icon-dark">🌙</span>
+                </button>
+                <a href="register.html" class="btn btn-primary nav-btn">SignUp</a>
+            </div>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Alternative Hero Section -->
+    <section class="hero-alt">
+    <div class="hero-alt-bg"></div>
+    <div class="hero-alt-overlay"></div>
+
+    <div class="hero-content-alt">
+
+        <!-- TITLE -->
+        <h1 class="hero-alt-title">
+            The Art of <span>Roasting</span>
+        </h1>
+
+        <!-- PARAGRAPH WITH QUOTES -->
+        <p class="hero-alt-text">
+            <span class="quote">“</span>
+            Discover the perfect balance between science and passion.
+            Every roast is carefully crafted to unlock rich flavors,
+            bold aromas, and a truly unforgettable coffee experience.
+            <span class="quote">”</span>
+        </p>
+
+        <!-- BUTTONS -->
+        <div class="hero-alt-buttons">
+            <a href="#" class="btn primary-btn">Our Process</a>
+            <a href="#" class="btn secondary-btn">View Products</a>
+        </div>
+
+    </div>
+</section>
+
+<style>
+
+/* SECTION */
+.hero-alt {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* BACKGROUND (CHANGE IMAGE URL HERE) */
+.hero-alt-bg {
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover no-repeat;
+    animation: zoomBg 12s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+/* ZOOM ANIMATION */
+@keyframes zoomBg {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+/* OVERLAY */
+.hero-alt-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1;
+}
+
+/* CONTENT */
+.hero-content-alt {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 20px;
+    color: #fff;
+}
+
+/* TITLE */
+.hero-alt-title {
+    font-size: 100px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.hero-alt-title span {
+    color: #FFD700;
+}
+
+/* TEXT */
+.hero-alt-text {
+    margin-top: 15px;
+    line-height: 1.6;
+    color: rgba(255,255,255,1);
+    transition: 0.3s;
+}
+
+/* QUOTES */
+.quote {
+    color: #FFD700;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* HOVER EFFECT */
+.hero-alt-text:hover {
+    color: #fff;
+    letter-spacing: 0.4px;
+}
+
+/* BUTTONS */
+.hero-alt-buttons {
+    margin-top: 20px;
+}
+
+/* COMMON BUTTON */
+.btn {
+    padding: 10px 24px;
+    margin: 5px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* PRIMARY BUTTON */
+.primary-btn {
+    background: #FFD700;
+    color: #2b1d0e;
+}
+
+.primary-btn:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+/* SECONDARY BUTTON */
+.secondary-btn {
+    border: 2px solid #FFD700;
+    color: #FFD700;
+}
+
+.secondary-btn:hover {
+    background: #FFD700;
+    color: #2b1d0e;
+    transform: translateY(-3px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero-alt-title {
+        font-size: 75px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-alt-text {
+        font-size: 30px;
+    }
+}
+
+</style>
+
+    <!-- Coffee Roasting Process -->
+    <section class="section" id="roasting-process">
+        <div class="container">
+            <h2 class="section-title">Our Roasting Journey</h2>
+            <p class="section-subtitle">Follow the transformation from green bean to perfect roast</p>
+
+            <div class="process-timeline">
+                <div class="process-item"
+                    style="background-image: url('https://cdn.shopify.com/s/files/1/0271/1558/5622/files/What_is_Ethical_Coffee_Sourcing_1024x1024.jpg?v=1748466918'); background-size: cover; background-position: center;">
+                    <div class="process-content">
+                        <h3>Sourcing</h3>
+                        <p>We travel the world to find the finest coffee beans, building direct relationships with
+                            farmers who share our passion for quality and sustainability.</p>
+                    </div>
+                </div>
+
+                <div class="process-item"
+                    style="background-image: url('https://www.cropster.com/app/uploads/2022/07/12_Cropster_Lab-Cropster_at_Buna-159__1_-1.jpg'); background-size: cover; background-position: center;">
+                    <div class="process-content">
+                        <h3>Quality Control</h3>
+                        <p>Every batch is carefully inspected and cupped to ensure it meets our exacting standards for
+                            flavor, aroma, and quality.</p>
+                    </div>
+                </div>
+
+                <div class="process-item"
+                    style="background-image: url('https://www.fixcoffeebrand.com/cdn/shop/articles/The_Science_of_Coffee_Roasting.png?v=1699064093'); background-size: cover; background-position: center;">
+                    <div class="process-content">
+                        <h3>Roasting</h3>
+                        <p>Our master roasters use state-of-the-art equipment to precisely control temperature and
+                            timing, bringing out the unique characteristics of each bean.</p>
+                    </div>
+                </div>
+
+                <div class="process-item"
+                    style="background-image: url('https://www.coffeebeancorral.com/blog/image.axd?picture=/andrew-neel-66NjVBij7P8-unsplash.jpg'); background-size: cover; background-position: center;">
+                    <div class="process-content">
+                        <h3>Cooling & Resting</h3>
+                        <p>Freshly roasted beans are rapidly cooled to stop the roasting process, then allowed to rest
+                            for optimal flavor development.</p>
+                    </div>
+                </div>
+
+                <div class="process-item"
+                    style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJbqU92wsAp5EDc_AKzixJpo0NSKxbvT3RPA&s'); background-size: cover; background-position: center;">
+                    <div class="process-content">
+                        <h3>Brewing</h3>
+                        <p>The final step where our carefully roasted beans transform into the perfect cup, delivering
+                            the full spectrum of flavors we've worked so hard to develop.</p>
+                    </div>
+                </div>
+
+                <div class="process-item"
+                    style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwSLngkCw6KbE5fClw3XdFJcWFX7XYbYFO3g&s'); background-size: cover; background-position: center;">
+                    <div class="process-content">
+                        <h3>Packaging</h3>
+                        <p>We package our coffee in specially designed bags with one-way valves to preserve freshness
+                            and protect the delicate flavors we've worked so hard to develop.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialty Beans -->
+    <section class="section" style="background: var(--cream);">
+        <div class="container">
+            <h2 class="section-title">Specialty Bean Collection</h2>
+            <p class="section-subtitle">Discover our curated selection of exceptional single-origin and blended coffees
+            </p>
+
+            <div class="beans-showcase">
+                <div class="bean-card">
+                    <div class="bean-card-image"
+                        style="background-image: url('https://assets.beanbox.com/blog_images/HhnNa4LSqyOi0s5Q8Yjn.jpeg');">
+                    </div>
+                    <div class="bean-card-content">
+                        <h3> Yirgacheffe</h3>
+                        <p>Bright, floral notes with hints of blueberry and citrus. A delicate tea-like body with
+                            wine-like acidity.</p>
+                        <div style="margin-top: 1rem; font-weight: bold;">$22.99</div>
+                    </div>
+                </div>
+
+
+
+                <div class="bean-card">
+                    <div class="bean-card-image"
+                        style="background-image: url('https://blog.suvie.com/wp-content/uploads/2020/02/Guatemala-Antigua-coffee.jpg');">
+                    </div>
+                    <div class="bean-card-content">
+                        <h3>Guatemala </h3>
+                        <p>Complex, smoky flavor with spice and chocolate notes. Full body with a rich, velvety texture.
+                        </p>
+                        <div style="margin-top: 1rem; font-weight: bold;">$21.99</div>
+                    </div>
+                </div>
+
+                <div class="bean-card">
+                    <div class="bean-card-image"
+                        style="background-image: url('https://buycoffeecanada.com/cdn/shop/products/kenya-green-coffee-beans_dbe41f74-3ac5-4a43-8ca8-4c1ac1ffbd1f_800x.jpg?v=1537999748');">
+                    </div>
+                    <div class="bean-card-content">
+                        <h3>Kenya </h3>
+                        <p>Bright, bold flavor with blackcurrant and grapefruit notes. Wine-like acidity with a juicy
+                            mouthfeel.</p>
+                        <div style="margin-top: 1rem; font-weight: bold;">$24.99</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brewing Experience -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Brewing Methods</h2>
+            <p class="section-subtitle">Explore different ways to extract the perfect flavors from our beans</p>
+
+            <div class="brewing-methods">
+
+
+                <div class="brewing-card">
+                    <div class="brewing-card-image"
+                        style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrjyHlkViXf1t9FlpAnmlozT9DZSvPbFi-Lg&s');">
+                    </div>
+                    <div class="brewing-card-content">
+                        <div class="brewing-icon icon-cup" style="color: var(--accent-gold);"></div>
+                        <h3>Espresso</h3>
+                        <p>Intense, concentrated shot with rich crema and complex flavors</p>
+                    </div>
+                </div>
+
+                <div class="brewing-card">
+                    <div class="brewing-card-image"
+                        style="background-image: url('https://www.eatingwell.com/thmb/ypZDdq0HS72jXHjFCAt5eXRtF7E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/How-to-Make-Cold-Brew-Coffee-b4af3ec355b642e78bb79e18991a0da0.jpg');">
+                    </div>
+                    <div class="brewing-card-content">
+                        <div class="brewing-icon icon-cup" style="color: var(--accent-gold);"></div>
+                        <h3>Cold Brew</h3>
+                        <p>Smooth, low-acidity extraction with chocolate and caramel notes</p>
+                    </div>
+                </div>
+
+                <div class="brewing-card">
+                    <div class="brewing-card-image"
+                        style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI1y9fcKHvSyuUHIn2isH_cid9brEXhSUZ6g&s');">
+                    </div>
+                    <div class="brewing-card-content">
+                        <div class="brewing-icon icon-cup" style="color: var(--accent-gold);"></div>
+                        <h3>AeroPress</h3>
+                        <p>Versatile brewing that creates clean, bright cups with full body</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Story Section -->
+    <section class="story-section"
+        style="background: linear-gradient(135deg, rgba(255,248,240,0.95), rgba(255,240,230,0.95)), url('images/roastery/roasting-process.jpg') center/cover; position: relative;">
+        <div class="container" style="position: relative; z-index: 1;">
+            <h2 class="section-title">Our Coffee Story</h2>
+            <p class="section-subtitle">A journey of passion, precision, and perfection</p>
+
+            <div class="story-grid">
+                <div class="story-content">
+                    <h3>From Farm to Cup</h3>
+                    <p>Every coffee bean tells a story of its journey from the high-altitude farms where it's grown to
+                        the moment it's brewed in your cup. We honor this journey by ensuring every step of our process
+                        maintains the integrity and quality of the original bean.</p>
+                    <p>Our commitment to excellence begins with direct relationships with farmers who share our values
+                        of sustainability and quality. We work closely with them to ensure fair prices and sustainable
+                        farming practices that benefit both the environment and the communities.</p>
+                </div>
+                <div class="story-image"
+                    style="background-image: url('https://cdn.prod.website-files.com/66faa740073069dcad341d9f/68e8d26f6698f2c3fce8a9a2_ERP%20for%20coffee%20industry%20supply%20chain%20(2).webp'); background-size: cover; background-position: center; border-radius: 15px; min-height: 300px;">
+                </div>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-image"
+                    style="background-image: url('https://94celcius.com/cdn/shop/articles/La-science-derriere-un-cafe-torrefie-parfait.webp?v=1724336796&width=1080'); background-size: cover; background-position: center; border-radius: 15px; min-height: 300px;">
+                </div>
+                <div class="story-content">
+                    <h3>The Science of Roasting</h3>
+                    <p>Roasting coffee is both an art and a science. Our roasters use precise temperature control and
+                        timing to develop the perfect flavor profile for each bean variety. We monitor the roasting
+                        process closely, making adjustments based on moisture content, density, and bean size.</p>
+                    <p>Each roast profile is carefully developed to highlight the unique characteristics of the bean,
+                        whether it's the bright acidity of an Ethiopian Yirgacheffe or the deep, chocolate notes of a
+                        Colombian Supremo.</p>
+                </div>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-image"
+                    style="background-image: url('https://crewsupplyco.com/cdn/shop/articles/Crew-Makers-116.jpg?v=1744999477'); background-size: cover; background-position: center; border-radius: 15px; min-height: 300px;">
+                </div>
+
+                <div class="story-content">
+                    <h3>Crafting the Perfect Experience</h3>
+                    <p>Our commitment to quality extends beyond the beans to every aspect of your coffee experience.
+                        From the water we use to brew your coffee to the training of our baristas, every detail matters.
+                    </p>
+                    <p>We believe that great coffee should be accessible to everyone, whether you're a coffee
+                        connoisseur or just beginning your journey. Our knowledgeable staff is always happy to help you
+                        discover your perfect cup.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section">
+        <div class="container text-center">
+            <h2 class="section-title">Experience Coffee Excellence</h2>
+            <p class="section-subtitle">Visit our roastery and taste the difference that passion and precision make</p>
+
+            <div style="margin-top: 3rem;">
+                <a href="dashboard.html" class="btn btn-primary" style="margin-right: 1rem;">Wholesale Dashboard</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo" style="margin-bottom: 1.5rem;">
+                        <div class="logo-icon">B</div>
+                        <span>Brewora</span>
+                    </div>
+                    <h3>About Brewora</h3>
+                    <p>Your premier destination for exceptional coffee experiences. From carefully sourced beans to
+                        expertly crafted drinks, we're passionate about bringing you the perfect cup.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook" style="background: #1877F2;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram"
+                            style="background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter" style="background: #1DA1F2;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path
+                                    d="M23.953 4.57a10 10 0 0 1-2.825.775 4.958 4.958 0 0 0 2.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 0 0-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 0 0-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 0 1-2.228-.616v.06a4.923 4.923 0 0 0 3.946 4.827 4.996 4.996 0 0 1-2.212.085 4.936 4.936 0 0 0 4.604 3.417 9.867 9.867 0 0 1-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0 0 7.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0 0 24 4.59z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn" style="background: #0077B5;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Services</a></li>
+<li><a href="menu.html">Offerings</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Get in Touch</a></li>
+                    <li><a href="gallery.html">Portfolio</a></li>
+                    <li><a href="blog.html">Insights</a></li>
+                </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <span class="footer-icon">📍</span>
+                            <span>123 Coffee Street, Brew City, BC 12345</span>
+                        </li>
+                        <li>
+                            <span class="footer-icon">📞</span>
+                            <span>(555) 123-4567</span>
+                        </li>
+                        <li>
+                            <span class="footer-icon">✉️</span>
+                            <span>hello@coffeehaven.com</span>
+                        </li>
+                        <li>
+                            <span class="footer-icon">🕒</span>
+                            <span>Daily: 6:00 AM - 10:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Roastery Tours</h3>
+                    <p>Join us for a behind-the-scenes look at our roasting process. Available weekends by reservation.
+                    </p>
+                    <a href="contact.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Book Tour</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Brewora. All rights reserved. | Premium Coffee & Roastery Experience</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+

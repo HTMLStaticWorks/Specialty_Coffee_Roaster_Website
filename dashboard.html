@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesale Dashboard | Brewora</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-accent: #c08b5c;
+            --color-text-dim: #999;
+            --color-text-bright: #fff;
+            --font-display: 'Marcellus', serif;
+        }
+        body { background: #000; overflow-x: hidden; display: flex; color: #fff; }
+        .dashboard-shell { display: grid; grid-template-columns: 280px 1fr; width: 100vw; height: 100vh; }
+        
+        .dash-sidebar { 
+            background: #080807; 
+            border-right: 1px solid #1a1a1a; 
+            padding: 3rem 1.5rem; 
+            display: flex; 
+            flex-direction: column; 
+        }
+
+        .logo { font-family: var(--font-display); font-size: 2rem; color: var(--color-accent); font-weight: 700; text-decoration: none; margin-bottom: 2rem; }
+
+        .dash-nav { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.5rem; }
+        .dash-nav-link { 
+            display: flex; 
+            align-items: center; 
+            gap: 1rem; 
+            padding: 0.75rem 1rem; 
+            color: var(--color-text-dim); 
+            text-decoration: none; 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            font-weight: 600;
+            letter-spacing: 1px; 
+            border-radius: 8px; 
+            transition: 0.3s; 
+        }
+        .dash-nav-link i { width: 20px; font-size: 1rem; color: var(--color-accent); opacity: 0.7; }
+        .dash-nav-link:hover, .dash-nav-link.active { background: rgba(192,139,92,0.15); color: var(--color-text-bright); }
+        .dash-nav-link.active i { opacity: 1; color: var(--color-text-bright); }
+        .logout-btn { opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem; }
+        .logout-btn:hover { opacity: 1; color: #ff5252 !important; }
+
+        .dash-main { overflow-y: auto; padding: 4rem 5vw; display: flex; flex-direction: column; gap: 4rem; }
+
+        .dash-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .stat-card { 
+            background: rgba(20,20,18,0.7); 
+            border: 1px solid #1a1a1a; 
+            padding: 2.5rem; 
+            border-radius: 20px; 
+            transition: 0.4s; 
+        }
+        .stat-card:hover { border-color: var(--color-accent); transform: translateY(-5px); }
+        .stat-val { font-family: var(--font-display); font-size: 2.8rem; margin: 0.5rem 0; color: #fff; font-weight: 400; }
+        .stat-label { font-size: 0.8rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--color-accent); opacity: 1; font-weight: 600; }
+
+        .dash-table-wrap { background: rgba(5,5,4,0.5); border: 1px solid #1a1a1a; border-radius: 30px; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { padding: 1.5rem 2rem; border-bottom: 1px solid #1a1a1a; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; color: var(--color-accent); opacity: 0.9; }
+        td { padding: 1.5rem 2rem; border-bottom: 1px solid #0a0a09; font-size: 0.9rem; color: #eee; }
+        .status-badge { padding: 0.4rem 1.2rem; border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; }
+        .badge-transit { background: rgba(192,139,92,0.2); color: var(--color-accent); }
+        .badge-delivered { background: rgba(76,175,80,0.1); color: #4CAF50; }
+
+        @media (max-width: 1024px) {
+            .dashboard-shell { grid-template-columns: 80px 1fr; }
+            .dash-sidebar span { display: none; }
+            .dash-nav-link { justify-content: center; }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-shell { grid-template-columns: 1fr; }
+            .dash-sidebar { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-shell">
+        <aside class="dash-sidebar">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.8rem; text-decoration: none;">
+                <div class="logo-icon">B</div>
+                <span>Brewora</span>
+            </a>
+            <nav class="dash-nav">
+                <a href="#" class="dash-nav-link active"><i class="fas fa-chart-line"></i> <span>Overview</span></a>
+                <a href="#" class="dash-nav-link"><i class="fas fa-boxes-stacked"></i> <span>Inventory</span></a>
+                <a href="#" class="dash-nav-link"><i class="fas fa-truck-fast"></i> <span>Live Orders</span></a>
+                <a href="#" class="dash-nav-link"><i class="fas fa-microscope"></i> <span>Lab Profiles</span></a>
+                <a href="#" class="dash-nav-link"><i class="fas fa-file-invoice-dollar"></i> <span>Invoicing</span></a>
+                <a href="#" class="dash-nav-link"><i class="fas fa-gear"></i> <span>Settings</span></a>
+            </nav>
+            <a href="index.html" class="dash-nav-link logout-btn" style="margin-top: auto;"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+        </aside>
+
+        <main class="dash-main">
+            <header style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                    <h1 style="margin:0; font-size: 2.2rem;">THE <span style="color: var(--color-accent);">DAILY</span> BEAN</h1>
+                    <p style="text-align: left; margin: 0; font-size: 0.8rem; letter-spacing: 2px; opacity: 0.5;">PARTNERSHIP PORTAL MMXXIV</p>
+                </div>
+                <div style="display: flex; gap: 2rem; align-items: center;">
+                    <div style="text-align: right;">
+                        <p style="margin: 0; font-size: 0.9rem; font-weight: 600;">ALEXANDER VORNE</p>
+                        <p style="margin: 0; font-size: 0.7rem; color: var(--color-accent);">ENTERPRISE PARTNER</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=100&h=100" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--color-accent);" alt="">
+                </div>
+            </header>
+
+            <div class="dash-stats-grid">
+                <div class="stat-card">
+                    <p class="stat-label">Stock Availability</p>
+                    <div class="stat-val">94.2%</div>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Active Transits</p>
+                    <div class="stat-val">04</div>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Next Batch Date</p>
+                    <div class="stat-val">MAR 28</div>
+                </div>
+            </div>
+
+            <section>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h3 style="margin:0; font-size: 1rem; letter-spacing: 2px;">LIVE SHIPMENT TRACKING</h3>
+                    <a href="#" style="font-size: 0.7rem; color: var(--color-accent); text-decoration: none;">VIEW ALL ORDERS <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="dash-table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ORDER REFERENCE</th>
+                                <th>BLEND ARCHITECTURE</th>
+                                <th>VOLUME (KG)</th>
+                                <th>STATUS</th>
+                                <th>EST. ARRIVAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-family: monospace;">#RM-9042-X</td>
+                                <td>VELVET ESPRESSO BLEND</td>
+                                <td>45.0</td>
+                                <td><span class="status-badge badge-transit">IN TRANSIT</span></td>
+                                <td>MAR 24, 16:30</td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: monospace;">#RM-8812-Y</td>
+                                <td>ETHIOPIA YIRGACHEFFE</td>
+                                <td>12.5</td>
+                                <td><span class="status-badge badge-delivered">DELIVERED</span></td>
+                                <td>MAR 22, 10:15</td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: monospace;">#RM-8700-Z</td>
+                                <td>ONYX DARK ROAST</td>
+                                <td>20.0</td>
+                                <td><span class="status-badge badge-delivered">DELIVERED</span></td>
+                                <td>MAR 20, 09:45</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div class="stat-card" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                    <i class="fas fa-graduation-cap" style="font-size: 2rem; color: var(--color-accent); margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">ACADEMY ACCESS</h3>
+                    <p style="font-size: 0.85rem; opacity: 0.6;">Your team has level 2 certification access till Sep 2024.</p>
+                </div>
+                <div class="stat-card" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                    <i class="fas fa-microscope" style="font-size: 2rem; color: var(--color-accent); margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">SMART LAB TIPS</h3>
+                    <p style="font-size: 0.85rem; opacity: 0.6;">Try reducing grind size by 0.2mm for tomorrow's batch.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

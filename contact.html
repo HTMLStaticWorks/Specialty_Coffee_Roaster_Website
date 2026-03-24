@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Brewora</title>
+    <meta name="description"
+        content="Get in touch with Brewora. Find our location, hours, and contact information. Visit us for the best coffee experience">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Caveat:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo-icon.png">
+
+    <!-- Additional CSS for Contact Page -->
+    <style>
+        .contact-section {
+            padding: var(--space-xxl) 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            align-items: start;
+        }
+
+        .contact-info-card {
+            background: var(--bg-card);
+            padding: var(--space-lg);
+            border-radius: 16px;
+            box-shadow: var(--shadow-medium);
+            margin-bottom: var(--space-lg);
+            border-left: 4px solid var(--accent-gold);
+            overflow: hidden;
+        }
+
+        .contact-info-card h3 {
+            color: var(--primary-brown);
+            margin-bottom: var(--space-md);
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .contact-info-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: var(--space-sm);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            padding: var(--space-lg);
+            border-radius: 16px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-form h3 {
+            color: var(--primary-brown);
+            margin-bottom: var(--space-lg);
+            text-align: center;
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-sm);
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .hours-card {
+            background: var(--bg-card);
+            padding: var(--space-lg);
+            border-radius: 16px;
+            box-shadow: var(--shadow-light);
+            border-top: 4px solid var(--accent-gold);
+            text-align: center;
+        }
+
+        .hours-card h4 {
+            color: var(--primary-brown);
+            margin-bottom: var(--space-sm);
+            font-family: var(--font-primary);
+        }
+
+        .map-container {
+            background: url('images/hero/contact-hero-bg.jpg') center/cover;
+            height: 400px;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            margin-top: var(--space-xl);
+        }
+
+        .map-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(44, 24, 16, 0.2), rgba(74, 44, 26, 0.2));
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--text-on-dark);
+            z-index: 2;
+        }
+
+        .map-overlay h3 {
+            font-size: 2rem;
+            margin-bottom: var(--space-sm);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .map-header-content .section-title {
+            color: #FFFFFF !important;
+        }
+
+        [data-theme="dark"] .map-header-content .section-title {
+            color: #2C1810 !important;
+        }
+
+        /* New Map Section Styles */
+        .map-embed-full {
+            position: relative;
+        }
+
+        .floating-map-info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            z-index: 10;
+            transition: var(--transition-smooth);
+        }
+
+        .floating-map-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .map-action-bar {
+            background: var(--cream);
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .quick-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Fix send message button */
+        .contact-form button[type="submit"] {
+            max-width: 200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hours-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+
+            .map-header-content h2 {
+                font-size: 2rem !important;
+            }
+
+            .map-header-content .section-subtitle {
+                font-size: 1rem !important;
+            }
+
+            .map-header-content>div {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .map-embed-full {
+                height: 400px !important;
+            }
+
+            .floating-map-info {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin: 1rem;
+                max-width: 100%;
+            }
+
+            .map-action-bar {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                padding: 1.5rem !important;
+                gap: 1.5rem !important;
+            }
+
+            .map-action-bar>div {
+                width: 100%;
+                text-align: center !important;
+            }
+
+            .map-action-bar>div:last-child {
+                width: 100%;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 1rem !important;
+            }
+
+            .map-action-bar>div:last-child>a {
+                width: 100%;
+                max-width: 300px;
+                text-align: center !important;
+            }
+
+            .quick-info-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .info-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .map-embed-full {
+                height: 300px !important;
+            }
+
+            .floating-map-info {
+                margin: 0.5rem;
+                padding: 1rem;
+            }
+
+            .map-action-bar {
+                padding: 1rem !important;
+            }
+
+            .map-action-bar>div:last-child>a {
+                max-width: 250px;
+            }
+
+            .info-card {
+                padding: 1rem;
+            }
+
+            .map-header-content>div>div {
+                font-size: 2rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <div class="logo-icon">B</div>
+                <span>Brewora</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li class="mobile-theme-toggle theme-toggle-btn">
+                    <span>Theme</span>
+                    <button class="theme-btn" aria-label="Toggle dark mode">
+                        <span class="theme-icon-light">☀️</span>
+                        <span class="theme-icon-dark">🌙</span>
+                    </button>
+                </li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+<li><a href="menu.html" class="nav-link">Offerings</a></li>
+                        <li><a href="about.html" class="nav-link">Heritage</a></li>
+<li><a href="contact.html" class="nav-link active">Connect</a></li>
+<li><a href="gallery.html" class="nav-link">Showcase</a></li>
+<li><a href="blog.html" class="nav-link">Insights</a></li>
+
+                <li><a href="register.html" class="btn btn-primary nav-btn">SignUp</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">
+                    <span class="theme-icon-light">☀️</span>
+                    <span class="theme-icon-dark">🌙</span>
+                </button>
+                <a href="register.html" class="btn btn-primary nav-btn">SignUp</a>
+            </div>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contact Hero -->
+   <section class="contact-hero">
+    <div class="contact-bg"></div>
+    <div class="contact-overlay"></div>
+
+    <div class="container contact-content">
+
+        <!-- HERO TITLE -->
+        <h1 class="contact-title">
+            Let’s <span>Connect</span>
+        </h1>
+
+        <!-- PARAGRAPH WITH QUOTES -->
+        <p class="contact-text">
+            <span class="quote">“</span>
+            Whether you're looking for the perfect brew or want to collaborate,
+            we’re here to make your coffee experience exceptional. Reach out and
+            let’s create something warm and memorable together.
+            <span class="quote">”</span>
+        </p>
+
+        <!-- BUTTONS -->
+        <div class="contact-buttons">
+            <a href="#" class="btn primary-btn">Contact Us</a>
+            <a href="#" class="btn secondary-btn">Visit Café</a>
+        </div>
+
+    </div>
+</section>
+
+<style>
+
+/* SECTION */
+.contact-hero {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* BACKGROUND IMAGE (CHANGE THIS URL) */
+.contact-bg {
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31') center/cover no-repeat;
+    animation: zoomBg 12s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+/* ZOOM ANIMATION */
+@keyframes zoomBg {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+/* OVERLAY */
+.contact-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1;
+}
+
+/* CONTENT */
+.contact-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    color: #fff;
+}
+
+/* TITLE */
+.contact-title {
+    font-size: 100px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.contact-title span {
+    color: #FFD700;
+}
+
+/* PARAGRAPH */
+.contact-text {
+    margin-top: 15px;
+    line-height: 1.6;
+    color: rgba(255,255,255,1);
+    transition: 0.3s;
+}
+
+/* QUOTES */
+.quote {
+    color: #FFD700;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* HOVER EFFECT */
+.contact-text:hover {
+    color: #fff;
+    letter-spacing: 0.4px;
+}
+
+/* BUTTONS */
+.contact-buttons {
+    margin-top: 20px;
+}
+
+/* COMMON BUTTON */
+.btn {
+    padding: 10px 24px;
+    margin: 5px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* PRIMARY BUTTON */
+.primary-btn {
+    background: #FFD700;
+    color: #2b1d0e;
+}
+
+.primary-btn:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+/* SECONDARY BUTTON */
+.secondary-btn {
+    border: 2px solid #FFD700;
+    color: #FFD700;
+}
+
+.secondary-btn:hover {
+    background: #FFD700;
+    color: #2b1d0e;
+    transform: translateY(-3px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .contact-title {
+        font-size: 75px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-text {
+        font-size: 30px;
+    }
+}
+
+</style>
+
+    <!-- Contact Information & Form -->
+    <section class="contact-section">
+        <div class="container">
+
+            <!-- Contact Information -->
+
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" id="firstName" class="form-input" placeholder="John" required>
+                            <span class="form-error">Please enter your first name</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" id="lastName" class="form-input" placeholder="Doe" required>
+                            <span class="form-error">Please enter your last name</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="john.doe@example.com" required>
+                        <span class="form-error">Please enter a valid email address</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="(555) 123-4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <select id="subject" class="form-input" required>
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="catering">Catering Order</option>
+                            <option value="tour">Roastery Tour</option>
+                            <option value="wholesale">Wholesale Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="form-error">Please select a subject</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" class="form-input" rows="5" placeholder="Tell us what's on your mind..."
+                            required></textarea>
+                        <span class="form-error">Please enter your message (minimum 10 characters)</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Business Hours -->
+    <section class="section" style="background: #FFF8DC;">
+        <div class="container">
+            <h2 class="section-title" style="color: #2C1810;">Business Hours</h2>
+            <p class="section-subtitle" style="color: #666666;">When you can visit us for your perfect cup</p>
+
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h4><span class=""></span> Coffee Shop</h4>
+                    <ul class="hours-list">
+                        <li><span>Monday</span><span>6:00 AM - 10:00 PM</span></li>
+                        <li><span>Saturday</span><span>7:00 AM - 11:00 PM</span></li>
+                        <li><span>Sunday</span><span>7:00 AM - 9:00 PM</span></li>
+                        <li><span>Holidays</span><span>8:00 AM - 6:00 PM</span></li>
+                    </ul>
+                </div>
+
+                <div class="hours-card">
+                    <h4><span class=""></span> Roastery Tours</h4>
+                    <ul class="hours-list">
+                        <li><span>Wednesday</span><span>2:00 PM - 4:00 PM</span></li>
+                        <li><span>Saturday</span><span>10:00 AM - 12:00 PM</span></li>
+                        <li><span>Sunday</span><span>2:00 PM - 4:00 PM</span></li>
+                        <li><span>By Appointment</span><span>Available</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section"
+        style="background: linear-gradient(135deg, var(--primary-brown), var(--secondary-brown)); padding: var(--space-xxl) 0; position: relative; overflow: hidden;">
+        <div class="container">
+            <div class="map-header-content" style="text-align: center; margin-bottom: 3rem;">
+                <h2 class="section-title" style="color: var(--find-us-color); font-size: 3rem; margin-bottom: 1rem;">
+                    Find Us
+                </h2>
+                <p class="section-subtitle" style="color: var(--cream); font-size: 1.25rem;">Visit Brewora - Your
+                    Perfect Coffee Destination</p>
+
+            </div>
+
+            <div class="map-showcase"
+                style="background: var(--bg-card); border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 1200px; margin: 0 auto;">
+                <!-- Map Container -->
+                <div class="map-embed-full" style="height: 600px; position: relative;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.221990129!2d-122.4194154!3d37.7749295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQ2JzI5LjgiTiAxMjLCsDI1JzE3LjkiRQ!5e0!3m2!1sen!2sus!4v1234567890"
+                        width="100%" height="100%" style="border: none;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+
+                </div>
+
+                <!-- Action Bar -->
+                <div class="map-action-bar"
+                    style="background: #FFF8DC; padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center;">
+                    <div>
+                        <h3 style="color: #2C1810; margin: 0 0 0.5rem 0; font-size: 1.5rem;">Ready to
+                            Visit?</h3>
+                        <p style="color: #666666; margin: 0; font-size: 1rem;">We're open daily and ready to
+                            serve you the best coffee!</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=123+Coffee+Street+Brew+City+BC+12345"
+                            target="_blank" class="btn btn-primary"
+                            style="background: var(--accent-gold); color: #2C1810; padding: 1rem 2rem; font-weight: 600; border-radius: 30px;">
+                            🗺️ Get Directions
+                        </a>
+                        <a href="tel:5551234567" class="btn btn-secondary"
+                            style="background: var(--primary-brown); color: var(--white); padding: 1rem 2rem; font-weight: 600; border-radius: 30px;">
+                            📞 Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Info Cards -->
+            <div class="quick-info-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="info-card"
+                    style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🚗</div>
+                    <h4 style="color: var(--white); margin-bottom: 1rem;">Parking Available</h4>
+                    <p style="color: var(--cream); margin: 0;">Free parking for customers in our dedicated lot</p>
+                </div>
+
+                <div class="info-card"
+                    style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🚌</div>
+                    <h4 style="color: var(--white); margin-bottom: 1rem;">Public Transit</h4>
+                    <p style="color: var(--cream); margin: 0;">Bus stop right outside, main line accessible</p>
+                </div>
+
+                <div class="info-card"
+                    style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">♿</div>
+                    <h4 style="color: var(--white); margin-bottom: 1rem;">Accessible</h4>
+                    <p style="color: var(--cream); margin: 0;">Wheelchair accessible entrance and facilities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">More than just great coffee</p>
+
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-image"
+                        style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5qV_wt_iNiaHRWHQweNJEPIGbSuTGD_avAw&s') center/cover;">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Catering</h3>
+                        <p>We cater for events, meetings, and special occasions. Let us bring our exceptional coffee and
+                            treats to your next .</p>
+                        <button class="btn btn-primary"
+                            onclick="document.getElementById('subject').value='catering'">Request</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image"
+                        style="background: url('data:image/jpeg;base64,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') center/cover;">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Office Delivery</h3>
+                        <p>Regular coffee delivery for your office. Keep your team productive with fresh, premium coffee
+                            delivered .</p>
+                        <button class="btn btn-primary"
+                            onclick="document.getElementById('subject').value='wholesale'">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image"
+                        style="background: url('https://www.societycoffee.co.nz/cdn/shop/files/ws.jpg?v=1729028838&width=1445') center/cover;">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Coffee Workshops</h3>
+                        <p>Join our coffee brewing workshops and learn the art of making perfect coffee at home from our
+                            expert .</p>
+                        <button class="btn btn-primary" onclick="document.getElementById('subject').value='tour'">Book
+                            Workshop</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            
+            <div class="footer-section">
+                <div class="logo" style="margin-bottom: 1.5rem;">
+                    <div class="logo-icon">B</div>
+                    <span>Brewora</span>
+                </div>
+                <h3>About Brewora</h3>
+                <p>
+                    Brewora is your destination for premium coffee experiences and innovative brewing solutions. 
+                    We blend quality, craftsmanship, and precision to deliver coffee excellence that stands apart.
+                </p>
+
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook" style="background: #1877F2;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+
+                    <a href="#" class="social-icon" aria-label="Instagram"
+                        style="background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07..."/>
+                        </svg>
+                    </a>
+
+                    <a href="#" class="social-icon" aria-label="Twitter" style="background: #1DA1F2;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                            <path d="M23.953 4.57a10 10 0 0 1-2.825.775..."/>
+                        </svg>
+                    </a>
+
+                    <a href="#" class="social-icon" aria-label="LinkedIn" style="background: #0077B5;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                            <path d="M20.447 20.452h-3.554v-5.569..."/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Explore</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Services</a></li>
+<li><a href="menu.html">Offerings</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Get in Touch</a></li>
+                    <li><a href="gallery.html">Portfolio</a></li>
+                    <li><a href="blog.html">Insights</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Reach Us</h3>
+                <ul class="footer-contact-list">
+                    <li>
+                        <span class="footer-icon">📍</span>
+                        <span>45 Prestige Avenue, Downtown District</span>
+                    </li>
+                    <li>
+                        <span class="footer-icon">📞</span>
+                        <span>+1 (800) 987-6543</span>
+                    </li>
+                    <li>
+                        <span class="footer-icon">✉️</span>
+                        <span>support@brewora.com</span>
+                    </li>
+                    <li>
+                        <span class="footer-icon">🕒</span>
+                        <span>Mon - Sun: 8:00 AM - 9:00 PM</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Stay Updated</h3>
+                <p>
+                    Join our community to receive exclusive updates, premium offers, and the latest insights.
+                </p>
+                <form style="margin-top: 1rem;">
+                    <input type="email" placeholder="Enter your email"
+                        style="width: 100%; padding: 0.6rem; margin-bottom: 0.6rem; border: none; border-radius: 6px;">
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        Subscribe Now
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                &copy; 2026 Brewora. All rights reserved. | Crafted for Premium Experiences
+            </p>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
