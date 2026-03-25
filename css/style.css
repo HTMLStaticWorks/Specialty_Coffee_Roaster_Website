@@ -721,19 +721,20 @@ a:focus {
 }
 
 .nav-btn.btn-primary {
-    width: 44px !important;
+    width: auto !important;
     height: 44px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 0 !important;
-    /* Reset padding for perfect circle */
-    border-radius: 50% !important;
+    padding: 0 1.5rem !important;
+    border-radius: 50px !important;
     background: var(--accent-gold) !important;
     color: var(--primary-brown) !important;
-    font-size: 0 !important;
-    /* Ensure no text shows */
+    font-size: 1rem !important;
+    font-weight: 700 !important;
     box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3) !important;
+    flex-shrink: 0 !important;
+    text-transform: none !important;
 }
 
 .nav-btn.btn-primary svg {
@@ -1750,7 +1751,7 @@ a:focus {
 
 /* Real social media icons using Unicode symbols */
 .social-icon.facebook::before {
-    content: "f";
+    content: "";
     font-family: Arial, sans-serif;
 }
 
@@ -1760,12 +1761,12 @@ a:focus {
 }
 
 .social-icon.twitter::before {
-    content: "X";
+    content: "";
     font-family: Arial, sans-serif;
 }
 
 .social-icon.linkedin::before {
-    content: "in";
+    content: "";
     font-family: Arial, sans-serif;
     font-size: 14px;
 }
@@ -1892,11 +1893,13 @@ a:focus {
     }
 
     .nav-btn.btn-primary {
-        width: 38px !important;
+        width: auto !important;
         height: 38px !important;
-        /* Slightly smaller for 1024px */
-        border-radius: 50% !important;
-        padding: 0 !important;
+        /* Slightly smaller padding for 1024px to fit */
+        padding: 0 1rem !important;
+        border-radius: 50px !important;
+        font-size: 0.9rem !important;
+        flex-shrink: 0 !important;
     }
 
     .nav-btn.btn-primary svg {
@@ -1986,6 +1989,8 @@ a:focus {
         align-items: center;
         gap: 1.5rem;
         padding: 0;
+        overflow: visible;
+        flex-shrink: 0;
     }
 
     .nav-links li {
@@ -2009,6 +2014,8 @@ a:focus {
         padding-top: 2rem;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         width: 80%;
+        flex-shrink: 0;
+        padding-bottom: 2.5rem; /* Add padding at the bottom so it's not cut off by screen edge */
     }
 
     .mobile-btn {
@@ -2021,6 +2028,7 @@ a:focus {
         color: var(--primary-brown);
         font-weight: 700;
         text-decoration: none;
+        text-transform: none !important;
     }
 }
 
