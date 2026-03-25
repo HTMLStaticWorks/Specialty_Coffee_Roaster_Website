@@ -49,7 +49,7 @@
         }
 
         .story-image {
-            background: url('images/hero/about-hero-bg.jpg') center/cover;
+            background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop') center/cover;
             border-radius: 16px;
             min-height: 400px;
             position: relative;
@@ -121,6 +121,21 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: var(--space-lg);
             margin-top: var(--space-xl);
+        }
+
+        /* 💎 Meet Our Team Grid Scaling */
+        @media (min-width: 1440px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 2.5rem !important;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1204px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2rem !important;
+            }
         }
 
         .team-member {
@@ -597,7 +612,8 @@
             <h2 class="section-title">Meet Our Team</h2>
             <p class="section-subtitle">The passionate people behind your perfect cup</p>
 
-            <div class="grid grid-4" style="gap: 2rem; margin-top: 3rem;">
+            <div class="grid team-grid">
+                <!-- Row 1 -->
                 <div class="card">
                     <div class="card-image"
                         style="background-image: url('https://image.cnbcfm.com/api/v1/image/108130012-1744294170118-gettyimages-2198348663-AFP_36XM7KW.jpeg?v=1744294185&w=800&h=600&ffmt=webp'); background-size: cover; background-position: center; height: 250px;">
@@ -605,12 +621,9 @@
                     <div class="card-content">
                         <h3 class="card-title">James Mitchell</h3>
                         <p class="card-description" style="color: var(--accent-gold); font-weight: 600;">Founder</p>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">With over 15 years in the coffee industry,
-                            James brings expertise and passion to every batch he roasts.</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">With over 15 years in the coffee industry, James brings expertise and passion to every batch he roasts.</p>
                     </div>
                 </div>
-
-
 
                 <div class="card">
                     <div class="card-image"
@@ -618,10 +631,8 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Michael Rodriguez</h3>
-                        <p class="card-description" style="color: var(--accent-gold); font-weight: 600;">Master Barista
-                        </p>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Michael's creativity and attention to detail
-                            make every coffee drink a work of art.</p>
+                        <p class="card-description" style="color: var(--accent-gold); font-weight: 600;">Master Barista</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Michael's creativity and attention to detail make every coffee drink a work of art.</p>
                     </div>
                 </div>
 
@@ -631,10 +642,76 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Emma Thompson</h3>
-                        <p class="card-description" style="color: var(--accent-gold); font-weight: 600;">Sourcing
-                            Manager</p>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Emma travels the world to find the finest
-                            coffee beans and build relationships with our farming partners.</p>
+                        <p class="card-description" style="color: var(--accent-gold); font-weight: 600;">Sourcing Manager</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Emma travels the world to find the finest coffee beans and build relationships with our farming partners.</p>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="card">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=300&fit=crop'); background-size: cover; background-position: center; height: 250px;">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">David Chen</h3>
+                        <p class="card-description" style="color: var(--accent-gold); font-weight: 600;">Head of Roasting</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">David oversees our production roasting, ensuring consistent quality and flavor in every batch.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop'); background-size: cover; background-position: center; height: 250px;">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Sarah Jenkins</h3>
+                        <p class="card-description" style="color: var(--accent-gold); font-weight: 600;">Quality Specialist</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Sarah's refined palate ensures that every roast profile meets our exacting standards.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=300&fit=crop'); background-size: cover; background-position: center; height: 250px;">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Lisa Wong</h3>
+                        <p class="card-description" style="color: var(--accent-gold); font-weight: 600;">Education Lead</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Lisa leads our community workshops, teaching enthusiasts the science of home brewing.</p>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="card">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop'); background-size: cover; background-position: center; height: 250px;">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Marcus Thorne</h3>
+                        <p class="card-description" style="color: var(--accent-gold); font-weight: 600;">Community Manager</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Marcus coordinates local events and builds lasting ties with our neighboring businesses.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop'); background-size: cover; background-position: center; height: 250px;">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Robert Miller</h3>
+                        <p class="card-description" style="color: var(--accent-gold); font-weight: 600;">Supply Chain Lead</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Robert manages our logistics to ensure our beans reach you at peak freshness.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=300&fit=crop'); background-size: cover; background-position: center; height: 250px;">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Zara Hassan</h3>
+                        <p class="card-description" style="color: var(--accent-gold); font-weight: 600;">Hospitality Lead</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Zara ensures every guest at Brewora receives world-class service and care.</p>
                     </div>
                 </div>
             </div>

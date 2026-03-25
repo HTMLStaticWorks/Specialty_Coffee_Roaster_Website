@@ -40,56 +40,108 @@
             font-size: 16px; /* Reset from body 24px for dashboard density */
         }
 
-        /* Sidebar Architecture */
-        .sidebar {
+        /* Sidebar Architecture - Fixed for Absolute Light Mode Visibility */
+        body.dashboard-body .sidebar {
             width: var(--sidebar-width);
             height: 100vh;
-            background-color: var(--sidebar-bg);
+            background-color: #1A0F0A !important; /* Forces dark even in light theme */
             position: fixed;
             top: 0;
             left: 0;
             z-index: 1100;
             display: flex;
             flex-direction: column;
-            padding: 2rem 1.5rem;
+            padding: 2.5rem 1.5rem;
             transition: var(--transition-dashboard);
-            border-right: 1px solid rgba(212, 165, 116, 0.1);
+            border-right: 1px solid rgba(212, 165, 116, 0.2) !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .sidebar.active {
+            z-index: 1300 !important;
+        }
+
+        /* Prevent Brand from hiding toggle on Mobile/Tablet */
+        @media (max-width: 1023px) {
+            #mobile-sidebar-toggle {
+                z-index: 1400 !important; /* Always above sidebar */
+            }
+            .sidebar-header {
+                margin-top: 4rem !important; /* Push logo down to clear toggle */
+            }
+        }
+
+        /* Kill all potential white backgrounds in sidebar from global style.css */
+        .sidebar, .sidebar *, .sidebar .menu-list, .sidebar .menu-item, .sidebar .sidebar-menu, .sidebar .sidebar-footer {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        /* Force Sidebar Text & Icons to White for Dark Background Contrast */
+        .sidebar .menu-link, .sidebar .menu-link *, .sidebar .footer-control-btn, .sidebar .footer-control-btn *, .sidebar span, .sidebar i {
+            color: #FFFFFF !important;
+            text-decoration: none !important;
+        }
+
+        /* Active State Contrast Improvement */
+        body.dashboard-body .menu-link.active {
+            background-color: var(--accent-gold) !important;
+            color: #1A0F0A !important; /* Dark text on gold background */
+            box-shadow: 0 4px 15px rgba(166, 124, 82, 0.4) !important;
+        }
+
+        body.dashboard-body .menu-link.active * {
+            color: #1A0F0A !important; 
         }
 
         .sidebar-header {
-            margin-bottom: 3rem;
-            display: flex;
-            align-items: center;
+            margin-bottom: 3.5rem;
+            display: flex !important;
+            align-items: center !important;
+            background: transparent !important;
         }
 
         .sidebar-logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: var(--white);
-            text-decoration: none;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 1.2rem;
+            text-decoration: none !important;
+            background: transparent !important;
         }
 
         .sidebar-logo span {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
-            background: linear-gradient(135deg, var(--accent-gold), var(--white));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-family: 'Times New Roman', Times, serif !important;
+            font-size: 2.4rem !important; /* Slightly reduced as requested */
+            background: linear-gradient(135deg, var(--accent-gold), #FFFFFF) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
             font-weight: 700;
+            white-space: nowrap;
+            letter-spacing: 1px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
         .sidebar-logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--accent-gold);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1A0F0A;
-            font-size: 1.2rem;
+            width: 60px !important; /* Matched to Index Header */
+            height: 60px !important;
+            background: var(--accent-gold) !important;
+            border-radius: 12px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #1A0F0A !important;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .sidebar-logo-svg {
+            width: 35px !important;
+            height: 35px !important;
+            color: #2C1810 !important;
         }
 
         /* Sidebar Navigation */
@@ -188,29 +240,40 @@
             transition: var(--transition-dashboard);
         }
 
-        /* Top Bar for Desktop/Mobile */
+        /* Top Bar for Desktop/Mobile - Override Global Header Styles */
         .dashboard-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 3rem;
+            background: transparent !important;
+        }
+
+        .dashboard-header, .dashboard-header div, .dashboard-header h1, .dashboard-header p, .dashboard-header span {
+            color: var(--text-main) !important; /* Force black in light, white in dark */
         }
 
         .welcome-text {
             flex: 1;
-            text-align: center; /* Center titles by default */
+            text-align: center;
         }
 
+        /* ⚖️ Forced Visibility for Subtitles in all themes */
         .welcome-text h1 {
             font-size: 2.2rem;
             font-weight: 800;
-            color: var(--primary-brown);
+            color: var(--accent-gold) !important;
             margin-bottom: 0.5rem;
         }
 
-        .welcome-text p {
-            color: var(--text-muted);
+        .welcome-text p, #section-subtitle {
             font-size: 1.1rem;
+            color: #000000 !important; /* Dark black for light mode */
+            opacity: 0.9;
+        }
+
+        [data-theme="dark"] .welcome-text p, [data-theme="dark"] #section-subtitle {
+            color: #FFFFFF !important; /* Pure white for dark mode */
         }
 
         .header-actions {
@@ -579,9 +642,47 @@
         @media (max-width: 480px) {
             .main-content {
                 padding: 1rem;
-                padding-top: 80px;
+                padding-top: 100px; /* Space for fixed toggle */
                 width: 100%;
-                overflow-x: hidden; /* Prevent horizontal page scroll */
+                overflow-x: hidden;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                margin-bottom: 2rem;
+                align-items: center;
+                text-align: center;
+            }
+
+            .welcome-text {
+                width: 100%;
+            }
+
+            .welcome-text h1 { 
+                font-size: 1.8rem !important; /* Smaller text for mobile */
+                word-wrap: break-word;
+                margin-bottom: 0.5rem;
+                color: var(--accent-gold) !important; /* High contrast */
+            }
+
+            .welcome-text p, .welcome-text span {
+                font-size: 0.95rem !important; /* Force smaller size */
+                margin-bottom: 1rem;
+                line-height: 1.4;
+            }
+
+            /* Fix Side Menu Huge Fonts */
+            .sidebar-menu span, .sidebar-footer span, .menu-link span, .menu-link i {
+                font-size: 1rem !important;
+            }
+
+            .sidebar-footer .footer-control-btn {
+                padding: 0.8rem !important;
+                font-size: 0.95rem !important;
+            }
+
+            .sidebar-footer .footer-control-btn span {
+                font-size: 0.95rem !important;
             }
 
             .stats-grid { 
@@ -593,33 +694,24 @@
                 padding: 1.2rem;
             }
 
-            .welcome-text h1 { 
-                font-size: 1.6rem; /* Scaled for 360px */
-                word-wrap: break-word;
-            }
-
-            .welcome-text p {
-                font-size: 0.95rem;
-            }
-
             .section-card {
-                padding: 1rem;
+                padding: 1.2rem;
                 width: 100%;
                 box-sizing: border-box;
             }
 
             .card-header {
-                flex-direction: column; /* Stack Title and Button */
+                flex-direction: column;
                 align-items: flex-start;
                 gap: 1rem;
             }
 
             .card-header h2 {
-                font-size: 1.2rem;
+                font-size: 1.3rem !important;
             }
 
             .card-header .social-contact-btn {
-                width: 100%; /* Full width button on 360px */
+                width: 100%;
                 text-align: center;
             }
 
@@ -629,34 +721,53 @@
                 justify-content: space-between;
                 font-size: 0.75rem !important; /* Balanced text */
                 letter-spacing: -0.2px;
+                margin-top: 1rem;
             }
 
             .tracking-label-container span {
                 text-align: center;
                 flex: 1;
+                font-size: 0.72rem !important; /* Force fit */
+                padding: 0 1px;
+                white-space: nowrap;
             }
 
-            /* Table Horizontal Scroll Force */
+            /* 📋 Table Scroll Improvements */
             .table-responsive {
                 width: 100%;
                 margin: 0;
                 overflow-x: auto !important;
-                -webkit-overflow-scrolling: touch;
-                display: block; /* Force block mapping for inner scroll */
+                display: block;
             }
 
             table {
-                min-width: 450px; /* Force minimum table width to trigger scroll */
+                min-width: 480px; 
                 display: table;
             }
 
             th, td {
                 padding: 0.8rem 0.6rem;
-                font-size: 0.85rem;
+                font-size: 0.85rem !important;
             }
 
+            /* Fix training item icons */
+            .training-icon {
+                width: 45px;
+                height: 45px;
+                min-width: 45px;
+            }
+
+            /* Training item wrap for small screens */
+            .training-item { 
+                flex-wrap: wrap; 
+                gap: 0.8rem;
+                padding: 1rem;
+            }
+            .training-item div { flex: 1 1 100%; }
+            .training-item button { width: 100%; margin-top: 0.5rem; }
+
             .guide-card { width: 100%; }
-            .header-actions { display: none; }
+            .header-actions { display: none !important; }
         }
 
 
@@ -682,12 +793,17 @@
     <!-- Sidebar Overlay -->
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-    <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <a href="index.html" class="sidebar-logo">
                 <div class="sidebar-logo-icon">
-                    <i class="fas fa-coffee"></i>
+                    <svg class="sidebar-logo-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                        <line x1="6" y1="1" x2="6" y2="4"></line>
+                        <line x1="10" y1="1" x2="10" y2="4"></line>
+                        <line x1="14" y1="1" x2="14" y2="4"></line>
+                    </svg>
                 </div>
                 <span>Brewora</span>
             </a>
@@ -733,7 +849,7 @@
             <div class="sidebar-footer-controls">
                 <button class="footer-control-btn rtl-btn" id="rtl-toggle">
                     <i class="fas fa-language"></i>
-                    <span>RTL Toggle</span>
+                    <span>RTLToogle  </span>
                 </button>
                 <button class="footer-control-btn theme-toggle-btn" id="theme-toggle">
                     <i class="fas fa-moon"></i>

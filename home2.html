@@ -71,6 +71,7 @@
             border-radius: 15px;
             box-shadow: var(--shadow-medium);
             margin: 0 2rem;
+            text-align: center;
         }
 
         .process-icon {
@@ -94,6 +95,21 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
+        }
+
+        /* 💎 Specialties Grid Scaling */
+        @media (min-width: 1440px) {
+            .beans-showcase {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 2.5rem !important;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1204px) {
+            .beans-showcase {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2rem !important;
+            }
         }
 
         .bean-card {
@@ -179,7 +195,7 @@
 
         .story-section {
             background: linear-gradient(135deg, rgba(255, 248, 240, 0.95), rgba(255, 240, 230, 0.95)),
-                url('images/roastery/roasting-process.jpg') center/cover;
+                url('https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop') center/cover;
             padding: 4rem 0;
             position: relative;
         }
@@ -219,12 +235,12 @@
         }
 
         .story-image {
-            background: linear-gradient(135deg, var(--light-brown), var(--secondary-brown));
-            border-radius: 15px;
-            padding: 3rem;
-            text-align: center;
-            color: var(--white);
-            font-size: 4rem;
+            background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop') center/cover;
+            border-radius: 16px;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
         }
 
         @media (max-width: 768px) {
@@ -576,41 +592,87 @@
             </p>
 
             <div class="beans-showcase">
+                <!-- Row 1 -->
                 <div class="bean-card">
-                    <div class="bean-card-image"
-                        style="background-image: url('https://assets.beanbox.com/blog_images/HhnNa4LSqyOi0s5Q8Yjn.jpeg');">
-                    </div>
+                    <div class="bean-card-image" style="background-image: url('https://assets.beanbox.com/blog_images/HhnNa4LSqyOi0s5Q8Yjn.jpeg');"></div>
                     <div class="bean-card-content">
-                        <h3> Yirgacheffe</h3>
-                        <p>Bright, floral notes with hints of blueberry and citrus. A delicate tea-like body with
-                            wine-like acidity.</p>
-                        <div style="margin-top: 1rem; font-weight: bold;">$22.99</div>
-                    </div>
-                </div>
-
-
-
-                <div class="bean-card">
-                    <div class="bean-card-image"
-                        style="background-image: url('https://blog.suvie.com/wp-content/uploads/2020/02/Guatemala-Antigua-coffee.jpg');">
-                    </div>
-                    <div class="bean-card-content">
-                        <h3>Guatemala </h3>
-                        <p>Complex, smoky flavor with spice and chocolate notes. Full body with a rich, velvety texture.
-                        </p>
-                        <div style="margin-top: 1rem; font-weight: bold;">$21.99</div>
+                        <h3>Ethiopia</h3>
+                        <p>Bright, floral notes with hints of blueberry and citrus. A delicate tea-like body with wine-like acidity.</p>
+                        <div style="margin-top: 1rem; font-weight: bold; color: var(--accent-gold);">$22.99</div>
                     </div>
                 </div>
 
                 <div class="bean-card">
-                    <div class="bean-card-image"
-                        style="background-image: url('https://buycoffeecanada.com/cdn/shop/products/kenya-green-coffee-beans_dbe41f74-3ac5-4a43-8ca8-4c1ac1ffbd1f_800x.jpg?v=1537999748');">
-                    </div>
+                    <div class="bean-card-image" style="background-image: url('https://blog.suvie.com/wp-content/uploads/2020/02/Guatemala-Antigua-coffee.jpg');"></div>
                     <div class="bean-card-content">
-                        <h3>Kenya </h3>
-                        <p>Bright, bold flavor with blackcurrant and grapefruit notes. Wine-like acidity with a juicy
-                            mouthfeel.</p>
-                        <div style="margin-top: 1rem; font-weight: bold;">$24.99</div>
+                        <h3>Guatemala</h3>
+                        <p>Complex, smoky flavor with spice and chocolate notes. Full body with a rich, velvety texture.</p>
+                        <div style="margin-top: 1rem; font-weight: bold; color: var(--accent-gold);">$21.99</div>
+                    </div>
+                </div>
+
+                <div class="bean-card">
+                    <div class="bean-card-image" style="background-image: url('https://buycoffeecanada.com/cdn/shop/products/kenya-green-coffee-beans_dbe41f74-3ac5-4a43-8ca8-4c1ac1ffbd1f_800x.jpg?v=1537999748');"></div>
+                    <div class="bean-card-content">
+                        <h3>Kenya</h3>
+                        <p>Bright, bold flavor with blackcurrant and grapefruit notes. Wine-like acidity with a juicy mouthfeel.</p>
+                        <div style="margin-top: 1rem; font-weight: bold; color: var(--accent-gold);">$24.99</div>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="bean-card">
+                    <div class="bean-card-image" style="background-image: url('https://images.unsplash.com/photo-1511920183-9f7106036526?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop');"></div>
+                    <div class="bean-card-content">
+                        <h3> Mandhelin</h3>
+                        <p>Earthy, complex body with low acidity. Deep notes of cedar, sweet tobacco, and spice.</p>
+                        <div style="margin-top: 1rem; font-weight: bold; color: var(--accent-gold);">$19.99</div>
+                    </div>
+                </div>
+
+                <div class="bean-card">
+                    <div class="bean-card-image" style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop');"></div>
+                    <div class="bean-card-content">
+                        <h3>Tarrazu</h3>
+                        <p>Balanced body with crisp acidity. Notes of honey, brown sugar, and vibrant dried fruit.</p>
+                        <div style="margin-top: 1rem; font-weight: bold; color: var(--accent-gold);">$20.50</div>
+                    </div>
+                </div>
+
+                <div class="bean-card">
+                    <div class="bean-card-image" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop');"></div>
+                    <div class="bean-card-content">
+                        <h3>Sidamo</h3>
+                        <p>Distinctive floral aroma with a light, silky body and hints of lemon and cane sugar.</p>
+                        <div style="margin-top: 1rem; font-weight: bold; color: var(--accent-gold);">$23.50</div>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="bean-card">
+                    <div class="bean-card-image" style="background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop');"></div>
+                    <div class="bean-card-content">
+                        <h3> Supremo</h3>
+                        <p>Classic nutty flavor with sweet caramel undertones and a clean, balanced finish.</p>
+                        <div style="margin-top: 1rem; font-weight: bold; color: var(--accent-gold);">$18.99</div>
+                    </div>
+                </div>
+
+                <div class="bean-card">
+                    <div class="bean-card-image" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop');"></div>
+                    <div class="bean-card-content">
+                        <h3> Santos</h3>
+                        <p>Low acidity, medium body with a nutty sweetness and soft hints of chocolate.</p>
+                        <div style="margin-top: 1rem; font-weight: bold; color: var(--accent-gold);">$17.50</div>
+                    </div>
+                </div>
+
+                <div class="bean-card">
+                    <div class="bean-card-image" style="background-image: url('https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop');"></div>
+                    <div class="bean-card-content">
+                        <h3>Rwanda </h3>
+                        <p>Vibrant acidity with a complex floral aroma and notes of red apple and citrus.</p>
+                        <div style="margin-top: 1rem; font-weight: bold; color: var(--accent-gold);">$25.00</div>
                     </div>
                 </div>
             </div>
@@ -628,10 +690,9 @@
 
                 <div class="brewing-card">
                     <div class="brewing-card-image"
-                        style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrjyHlkViXf1t9FlpAnmlozT9DZSvPbFi-Lg&s');">
+                        style="background-image: url('https://images.unsplash.com/photo-1507133750040-4a907757400f?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop');">
                     </div>
                     <div class="brewing-card-content">
-                        <div class="brewing-icon icon-cup" style="color: var(--accent-gold);"></div>
                         <h3>Espresso</h3>
                         <p>Intense, concentrated shot with rich crema and complex flavors</p>
                     </div>
@@ -639,21 +700,19 @@
 
                 <div class="brewing-card">
                     <div class="brewing-card-image"
-                        style="background-image: url('https://www.eatingwell.com/thmb/ypZDdq0HS72jXHjFCAt5eXRtF7E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/How-to-Make-Cold-Brew-Coffee-b4af3ec355b642e78bb79e18991a0da0.jpg');">
+                        style="background-image: url('https://images.unsplash.com/photo-1504633981105-619be6052d0e?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop');">
                     </div>
                     <div class="brewing-card-content">
-                        <div class="brewing-icon icon-cup" style="color: var(--accent-gold);"></div>
-                        <h3>Cold Brew</h3>
+                        <h3> Cold Brew</h3>
                         <p>Smooth, low-acidity extraction with chocolate and caramel notes</p>
                     </div>
                 </div>
 
                 <div class="brewing-card">
                     <div class="brewing-card-image"
-                        style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI1y9fcKHvSyuUHIn2isH_cid9brEXhSUZ6g&s');">
+                        style="background-image: url('https://images.unsplash.com/photo-1517256064527-03b79502d775?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop');">
                     </div>
                     <div class="brewing-card-content">
-                        <div class="brewing-icon icon-cup" style="color: var(--accent-gold);"></div>
                         <h3>AeroPress</h3>
                         <p>Versatile brewing that creates clean, bright cups with full body</p>
                     </div>
@@ -666,7 +725,7 @@
 
     <!-- Visual Story Section -->
     <section class="story-section"
-        style="background: linear-gradient(135deg, rgba(255,248,240,0.95), rgba(255,240,230,0.95)), url('images/roastery/roasting-process.jpg') center/cover; position: relative;">
+        style="background: linear-gradient(135deg, rgba(255,248,240,0.95), rgba(255,240,230,0.95)), url('https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop') center/cover; position: relative;">
         <div class="container" style="position: relative; z-index: 1;">
             <h2 class="section-title">Our Coffee Story</h2>
             <p class="section-subtitle">A journey of passion, precision, and perfection</p>

@@ -489,7 +489,8 @@ a:focus {
     display: flex;
     flex-direction: column;
     position: relative;
-    background: #1A0F0A; /* Roastery Base Color: Kills the white line */
+    background: #1A0F0A;
+    /* Roastery Base Color: Kills the white line */
 }
 
 /* Apply padding directly to content so background image flows behind header */
@@ -507,12 +508,15 @@ a:focus {
 
 /* Invisible Scroll Functionality: Keeps scrolling active but hides the UI element */
 .auth-page-body {
-    scrollbar-width: none !important; /* Firefox */
-    -ms-overflow-style: none !important; /* IE/Edge */
+    scrollbar-width: none !important;
+    /* Firefox */
+    -ms-overflow-style: none !important;
+    /* IE/Edge */
 }
 
 .auth-page-body::-webkit-scrollbar {
-    display: none !important; /* Chrome/Safari/Edge */
+    display: none !important;
+    /* Chrome/Safari/Edge */
 }
 
 
@@ -583,21 +587,26 @@ a:focus {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: clamp(16px, 2vw, 40px); /* Main Responsive Spacing Fix */
+    gap: clamp(16px, 2vw, 40px);
+    /* Main Responsive Spacing Fix */
     margin: 0;
     flex-wrap: nowrap;
-    white-space: nowrap; /* Prevent Break */
-    overflow: hidden; /* Safety against overflow */
+    white-space: nowrap;
+    /* Prevent Break */
+    overflow: hidden;
+    /* Safety against overflow */
 }
 
 /* 📏 Responsive Desktop Tuning (1024px to 1200px) */
 @media (min-width: 1024px) and (max-width: 1200px) {
     .nav-links {
-        gap: 12px !important; /* Reduced for 18px font fit */
+        gap: 12px !important;
+        /* Reduced for 18px font fit */
     }
-    
+
     .nav-link {
-        font-size: 18px !important; /* Enhanced Branding Visibility */
+        font-size: 18px !important;
+        /* Enhanced Branding Visibility */
         padding: 0.5rem 0.5rem !important;
     }
 }
@@ -605,7 +614,8 @@ a:focus {
 /* Specific Tweak for 1024px Precise Fit */
 @media (min-width: 1024px) and (max-width: 1024px) {
     .nav-link {
-        font-size: 18px !important; /* Large, bold brand presence */
+        font-size: 18px !important;
+        /* Large, bold brand presence */
         padding: 0.4rem 0.4rem !important;
     }
 }
@@ -685,7 +695,8 @@ a:focus {
 
 /* Theme Toggle as Circle Icon Like Reference */
 .theme-btn,
-.rtl-toggle-btn, .rtl-btn {
+.rtl-toggle-btn,
+.rtl-btn {
     width: 44px;
     height: 44px;
     /* Restored outer button size */
@@ -1164,38 +1175,63 @@ a:focus {
     align-items: center;
 }
 
-/* ===== Grid Layouts ===== */
+/* ===== Grid & Flex Layouts (Centered Standalone Scaling) ===== */
 .grid {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-md);
     width: 100%;
 }
 
-.grid-2 {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
+@media (min-width: 768px) {
+    .grid, .grid-1, .grid-2, .grid-3, .grid-4, .balanced-grid,
+    .best-sellers-grid, .testimonials-grid, .experiences-grid, .team-grid, 
+    .beans-showcase, .brewing-methods, .gallery-grid, .hours-grid, .quick-info-grid, .contact-grid {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: var(--space-lg) !important;
+    }
 
-.grid-3 {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
+    .grid > *, .grid-1 > *, .grid-2 > *, .grid-3 > *, .grid-4 > *, .balanced-grid > *,
+    .best-sellers-grid > *, .testimonials-grid > *, .experiences-grid > *, .team-grid > *, 
+    .beans-showcase > *, .brewing-methods > *, .gallery-grid > *, .hours-grid > *, .quick-info-grid > *, .contact-grid > * {
+        flex: 1 1 300px;
+        max-width: 100%;
+        margin-inline: 0;
+    }
 
-.grid-4 {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
+    /* Single Column Overrides */
+    .grid-1 > * {
+        flex: 0 1 600px !important;
+    }
 
-/* Balanced 2-column grid for specific sections (e.g., 3 cards with the 3rd centered) */
-.balanced-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
+    /* 2026 Grid Logic: 2 Columns at Tablet/Small Desktop */
+    @media (min-width: 768px) and (max-width: 1204px) {
+        .grid-2 > *, .grid-3 > *, .grid-4 > *, .balanced-grid > *,
+        .best-sellers-grid > *, .testimonials-grid > *, .experiences-grid > *, .team-grid > *, 
+        .beans-showcase > *, .brewing-methods > *, .gallery-grid > *, .hours-grid > *, .quick-info-grid > *, .contact-grid > * {
+            flex: 0 1 calc(50% - var(--space-lg)) !important;
+        }
+    }
+
+    /* 2026 Grid Logic: 3 Columns at Large Desktop (1440px) */
+    @media (min-width: 1205px) {
+        .grid-2 > *, .hours-grid > *, .contact-grid > * {
+            flex: 0 1 calc(50% - var(--space-lg)) !important;
+        }
+        .grid-3 > *, .grid-4 > *, .balanced-grid > *,
+        .best-sellers-grid > *, .testimonials-grid > *, .experiences-grid > *, .team-grid > *, 
+        .beans-showcase > *, .brewing-methods > *, .gallery-grid > * {
+            flex: 0 1 calc(33.333% - var(--space-lg)) !important;
+        }
+    }
 }
 
 .balanced-grid .card {
     width: 100%;
     margin-bottom: 0 !important;
-    /* Override inline margins when in grid */
 }
 
 @media (min-width: 1024px) {
@@ -1227,85 +1263,49 @@ a:focus {
     }
 }
 
-/* ===== Cards ===== */
-.card {
-    background: var(--bg-card);
-    border-radius: 16px;
-    padding: var(--space-md);
-    box-shadow: var(--card-shadow);
-    transition: var(--transition-smooth);
-    overflow: hidden;
-    position: relative;
-    border: 1px solid var(--border-main);
+/* ===== Cards & Image Containers (Standardized UI) ===== */
+.card, .bean-card, .brewing-card, .gallery-card, .blog-card, .auth-form-container, .team-member, .info-card {
+    overflow: hidden !important;
 }
 
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-medium);
+.card-image, 
+.bean-card-image, 
+.brewing-card-image, 
+.gallery-card-image,
+.member-image,
+.process-item,
+.value-card-image {
+    width: 100% !important;
+    height: 250px !important; /* Uniform height for all cards */
+    overflow: hidden !important;
+    position: relative !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 12px !important;
+    margin-bottom: var(--space-md) !important;
+    background-color: var(--medium-gray); /* Placeholder color */
 }
 
-.card-image {
-    width: 100%;
-    height: 200px;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: var(--space-md);
-    position: relative;
-    background: linear-gradient(135deg, var(--light-brown), var(--accent-gold));
+/* Force inline images to fill container correctly */
+.card-image img, 
+.bean-card-image img, 
+.brewing-card-image img, 
+.gallery-card-image img,
+.member-image img,
+.process-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: var(--transition-smooth) !important;
 }
 
-.card-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Coffee-related image placeholders */
-.card-image.coffee-beans::before {
-    background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=200&fit=crop&auto=format');
-}
-
-.card-image.coffee-cup::before {
-    background-image: url('https://images.unsplash.com/photo-1511920183-9f7106036526?w=400&h=200&fit=crop&auto=format');
-}
-
-.card-image.croissant::before {
-    background-image: url('https://images.unsplash.com/photo-1559310789-03c1176c3d88?w=400&h=200&fit=crop&auto=format');
-}
-
-.card-image.gift-box::before {
-    background-image: url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400&h=200&fit=crop&auto=format');
-}
-
-/* Additional card image types */
-.card-image.espresso::before {
-    background-image: url('https://images.unsplash.com/photo-1511920183-9f7106036526?w=400&h=200&fit=crop&auto=format');
-}
-
-.card-image.latte::before {
-    background-image: url('https://images.unsplash.com/photo-1534790566855-4c7b8ec9f7d5?w=400&h=200&fit=crop&auto=format');
-}
-
-.card-image.cappuccino::before {
-    background-image: url('https://images.unsplash.com/photo-1564890369478-c89ca6d9cda9?w=400&h=200&fit=crop&auto=format');
-}
-
-.card-image.americano::before {
-    background-image: url('https://images.unsplash.com/photo-1511920183-9f7106036526?w=400&h=200&fit=crop&auto=format');
-}
-
-.card-image.mocha::before {
-    background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=200&fit=crop&auto=format');
-}
-
-.card-image.cold-brew::before {
-    background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=200&fit=crop&auto=format');
+/* Responsive adjustment for images on smaller screens */
+@media (max-width: 480px) {
+    .card-image, .bean-card-image, .brewing-card-image, .gallery-card-image, .member-image {
+        height: 200px !important; /* Slightly shorter on mobile for better visibility */
+    }
 }
 
 .card-content {
