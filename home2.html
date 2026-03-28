@@ -36,12 +36,12 @@
 
         .process-item {
             display: flex;
-            align-items: center;
+            align-items: stretch;
             margin-bottom: 4rem;
             position: relative;
             border-radius: 15px;
             padding: 2rem;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .process-item::before {
@@ -261,7 +261,10 @@
 
             .process-item {
                 flex-direction: column !important;
-                padding-left: 60px;
+                padding: 1.5rem !important;
+                padding-left: 60px !important;
+                margin-bottom: 2rem !important;
+                align-items: center !important;
             }
 
             .process-item:nth-child(even) {

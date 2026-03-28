@@ -170,17 +170,35 @@
             padding: 1.5rem;
         }
 
-        .member-name {
-            color: var(--primary-brown);
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            font-family: var(--font-primary);
+        .team-member .card-title {
+            font-size: 2rem !important;
+            margin-bottom: 0.25rem !important;
+            color: var(--accent-gold) !important;
+            font-weight: 700 !important;
         }
 
-        .member-role {
-            color: var(--accent-gold);
-            font-weight: 600;
-            margin-bottom: 1rem;
+        .team-member .card-description {
+            font-size: 1.1rem !important;
+            color: var(--text-muted) !important;
+            font-weight: 400 !important;
+            margin-bottom: 0.75rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+        }
+
+        .team-member p:last-of-type {
+            font-size: 1rem !important;
+            line-height: 1.5 !important;
+            opacity: 0.8 !important;
+        }
+
+        /* 💡 Consistent Heading Colors for Both Themes */
+        .card .card-title {
+            color: var(--primary-brown) !important; /* Will be gold in dark mode via style.css override */
+        }
+
+        [data-theme="dark"] .card .card-title {
+            color: #FFD700 !important;
         }
 
         .timeline {
@@ -580,7 +598,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="team-member">
                     <div class="card-image"
                         style="background-image: url('https://previews.123rf.com/images/wedninth/wedninth1612/wedninth161200120/68242776-coffee-in-white-cup-with-journal-book-and-smart-phone.jpg'); background-size: cover; background-position: center; height: 200px;">
                     </div>
@@ -608,7 +626,7 @@
 
             <div class="grid team-grid">
                 <!-- Row 1 -->
-                <div class="card">
+                <div class="card team-member">
                     <div class="card-image"
                         style="background-image: url('https://image.cnbcfm.com/api/v1/image/108130012-1744294170118-gettyimages-2198348663-AFP_36XM7KW.jpeg?v=1744294185&w=800&h=600&ffmt=webp'); background-size: cover; background-position: center; height: 250px;">
                     </div>
@@ -621,7 +639,7 @@
 
                 
 
-                <div class="card">
+                <div class="card team-member">
                     <div class="card-image"
                         style="background-image: url('https://media.istockphoto.com/id/1197578214/photo/beautiful-young-woman.jpg?s=612x612&w=0&k=20&c=XdV1GLQalvNSXKsBv4C0vRDjPfiBOArH6BC_iCFtchg='); background-size: cover; background-position: center; height: 250px;">
                     </div>
@@ -635,7 +653,7 @@
                 <!-- Row 2 -->
                 
 
-                <div class="card">
+                <div class="card team-member">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop'); background-size: cover; background-position: center; height: 250px;">
                     </div>
@@ -646,7 +664,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card team-member">
                     <div class="card-image"
                         style="background-image: url('https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i2iTgyGYrPsc/v0/-1x-1.webp'); background-size: cover; background-position: center; height: 250px;">
                     </div>
@@ -660,7 +678,7 @@
                 <!-- Row 3 -->
                 
 
-                <div class="card">
+                <div class="card team-member">
                     <div class="card-image"
                         style="background-image: url('https://law.asu.edu/sites/g/files/litvpz156/files/2025-09/2025.05.14%20ASU%20Law%20ILP-08564.jpg'); background-size: cover; background-position: center; height: 250px;">
                     </div>
@@ -671,7 +689,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="team-member">
                     <div class="card-image"
                         style="background-image: url('https://mastersofscale.com/wp-content/uploads/2022/09/MoS_BillGates_colorcutout-600x600.webp'); background-size: cover; background-position: center; height: 250px;">
                     </div>

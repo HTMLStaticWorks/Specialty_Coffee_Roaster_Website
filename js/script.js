@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initScrollEffects();
     initAnimations();
     initSmokeEffect();
+    initBackToTop();
 });
 
 // ===== Theme Toggle =====
@@ -522,3 +523,30 @@ function initSmokeEffect() {
 
 // ===== Initialize Cart Count on Page Load =====
 updateCartCount();
+// ===== Back to Top Button =====
+function initBackToTop() {
+    // Inject the button HTML if it doesn't exist
+    if (!document.querySelector('.back-to-top')) {
+        const backBtn = document.createElement('button');
+        backBtn.className = 'back-to-top';
+        backBtn.setAttribute('aria-label', 'Back to top');
+        backBtn.title = 'Back to top';
+        backBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"></path></svg>`;
+        document.body.appendChild(backBtn);
+
+        backBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backBtn.classList.add('show');
+            } else {
+                backBtn.classList.remove('show');
+            }
+        });
+    }
+}
