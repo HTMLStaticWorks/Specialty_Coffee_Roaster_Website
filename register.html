@@ -305,8 +305,28 @@
 
             .btn-register {
                 width: 80%;
+                margin: 0 auto;
+                display: block;
                 padding: 0.75rem var(--space-lg);
                 font-size: 0.95rem;
+            }
+        }
+
+        /* Large desktop widths */
+        @media (min-width: 1024px) {
+            .auth-form-wrapper {
+                max-width: 580px;
+            }
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .auth-form-wrapper {
+                max-width: 680px;
             }
         }
     </style>
@@ -350,20 +370,19 @@
                     <form class="auth-form" id="registerForm">
                         <h3>Create Account</h3>
 
-                        <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName" class="form-label">First Name</label>
                                 <input type="text" id="firstName" name="firstName" class="form-input"
                                     placeholder="Enter your first name" required>
                             </div>
 
-                            <div class="form-group">
+                            
+                        
+<div class="form-group">
                                 <label for="lastName" class="form-label">Last Name</label>
                                 <input type="text" id="lastName" name="lastName" class="form-input"
                                     placeholder="Enter your last name" required>
                             </div>
-                        </div>
-
                         <div class="form-group">
                             <label for="email" class="form-label">Email Address</label>
                             <input type="email" id="email" name="email" class="form-input"
@@ -390,12 +409,12 @@
 
                         <div class="form-checkbox">
                             <input type="checkbox" id="terms" name="terms" required>
-                            <label for="terms">I agree the Terms of Service and Privacy Policy</label>
+                            <label for="terms">I agree Terms of Services</label>
                         </div>
 
                         <div class="form-checkbox">
                             <input type="checkbox" id="newsletter" name="newsletter">
-                            <label for="newsletter">Send me coffee updates and special offers</label>
+                            <label for="newsletter">Send me coffee updates</label>
                         </div>
 
                         <button type="submit" class="btn-register">Sign Up</button>

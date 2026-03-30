@@ -73,7 +73,7 @@
         }
 
         /* Kill all potential white backgrounds in sidebar from global style.css */
-        .sidebar, .sidebar *, .sidebar .menu-list, .sidebar .menu-item, .sidebar .sidebar-menu, .sidebar .sidebar-footer {
+        .sidebar, .sidebar *:not(.logo):not(.logo *), .sidebar .menu-list, .sidebar .menu-item, .sidebar .sidebar-menu, .sidebar .sidebar-footer {
             background-color: transparent !important;
             box-shadow: none !important;
             border: none !important;
@@ -103,46 +103,6 @@
             background: transparent !important;
         }
 
-        .sidebar-logo {
-            display: flex !important;
-            flex-direction: row !important;
-            align-items: center !important;
-            gap: 1.2rem;
-            text-decoration: none !important;
-            background: transparent !important;
-        }
-
-        .sidebar-logo span {
-            font-family: var(--font-brand) !important;
-            font-size: 3.2rem !important; /* Matches Index Header */
-            background: linear-gradient(135deg, var(--accent-gold), #FFFFFF) !important;
-            -webkit-background-clip: text !important;
-            background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-            font-weight: 700;
-            white-space: nowrap;
-            letter-spacing: 1px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-        }
-
-        .sidebar-logo-icon {
-            width: 60px !important; /* Matched to Index Header */
-            height: 60px !important;
-            background: var(--accent-gold) !important;
-            border-radius: 12px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            color: #1A0F0A !important;
-            flex-shrink: 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-        }
-
-        .sidebar-logo-svg {
-            width: 35px !important;
-            height: 35px !important;
-            color: #2C1810 !important;
-        }
 
         /* Sidebar Navigation */
         .sidebar-menu {
@@ -859,9 +819,9 @@
 
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <a href="index.html" class="sidebar-logo">
-                <div class="sidebar-logo-icon">
-                    <svg class="sidebar-logo-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg class="logo-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
                         <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
                         <line x1="6" y1="1" x2="6" y2="4"></line>

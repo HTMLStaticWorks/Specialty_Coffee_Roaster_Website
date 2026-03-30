@@ -295,8 +295,23 @@
 
             .btn-login {
                 width: 80%;
+                margin: 0 auto;
+                display: block;
                 padding: 0.75rem var(--space-lg);
                 font-size: 0.95rem;
+            }
+        }
+
+        /* Large desktop widths */
+        @media (min-width: 1024px) {
+            .auth-form-wrapper {
+                max-width: 540px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .auth-form-wrapper {
+                max-width: 640px;
             }
         }
     </style>
@@ -355,7 +370,7 @@
 
                         <div class="form-checkbox">
                             <input type="checkbox" id="remember" name="remember">
-                            <label for="remember">Remember me for 30 days</label>
+                            <label for="remember">Remember me</label>
                         </div>
 
                         <button type="submit" class="btn-login">Login</button>
