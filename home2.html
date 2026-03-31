@@ -40,7 +40,7 @@
         .process-item {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center; /* Always center on Desktop/Max View */
             margin-bottom: 4rem;
             position: relative;
             border-radius: 15px;
@@ -66,18 +66,20 @@
         }
 
         .process-item:nth-child(even) {
-            flex-direction: row-reverse;
+            flex-direction: row; /* Removed reverse to keep centering clean */
         }
 
         .process-content {
-            width: calc(50% - 3rem);
+            width: 450px; /* Fixed width for premium square-ish look on Desktop */
             flex: none;
-            padding: 2.5rem;
-            background: var(--bg-card);
-            border-radius: 15px;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.95); /* Semi-transparent for image visible behind */
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
             box-shadow: var(--shadow-heavy);
             margin: 2rem;
-            text-align: left;
+            text-align: center;
+            border: 1px solid rgba(212, 165, 116, 0.1);
         }
 
         .process-icon {
@@ -249,29 +251,54 @@
         }
 
         @media (max-width: 1024px) {
+            .process-item {
+                min-height: 380px;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+            .process-content {
+                width: 70% !important;
+                margin: 0 !important;
+                padding: 2rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
             .process-timeline::before {
-                left: 30px;
-                transform: none;
+                display: none;
             }
 
             .process-item {
                 flex-direction: column !important;
+                min-height: 380px;
                 padding: 1.5rem !important;
-                padding-left: 70px !important;
                 margin-bottom: 2rem !important;
-                align-items: flex-start !important;
-                min-height: auto;
+                justify-content: center !important;
+                align-items: center !important;
             }
 
             .process-item:nth-child(even) {
                 flex-direction: column !important;
-                align-items: flex-start !important;
             }
 
             .process-content {
-                margin: 0 !important;
-                width: 100% !important;
-                padding: 1.5rem !important;
+                width: 85% !important;
+                max-width: 280px !important; /* Reduced to fit perfectly on 360px with margins/shadows */
+                margin: 0 auto !important;
+                padding: 1.5rem !important; /* Balanced padding */
+                text-align: center;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(5px);
+            }
+
+            .process-content h3 {
+                font-size: 1.5rem !important;
+            }
+
+            .process-content p {
+                font-size: 1rem !important; /* Forces override of global 24px */
+                line-height: 1.4 !important;
+                margin-bottom: 0 !important;
             }
 
             .process-icon {
@@ -285,6 +312,18 @@
 
             .hero-content-alt h1 {
                 font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .process-item {
+                min-height: 380px;
+            }
+            .process-content h3 {
+                font-size: 1.3rem !important;
+            }
+            .process-content p {
+                font-size: 0.9rem !important;
             }
         }
     </style>
@@ -531,16 +570,15 @@
                     <div class="process-content">
                         <h3>Sourcing</h3>
                         <p>We travel the world to find the finest coffee beans, building direct relationships with
-                            farmers who share our passion for quality and sustainability.</p>
+                            farmers and peoples.</p>
                     </div>
                 </div>
 
                 <div class="process-item"
                     style="background-image: url('https://www.cropster.com/app/uploads/2022/07/12_Cropster_Lab-Cropster_at_Buna-159__1_-1.jpg'); background-size: cover; background-position: center;">
                     <div class="process-content">
-                        <h3>Quality Control</h3>
-                        <p>Every batch is carefully inspected and cupped to ensure it meets our exacting standards for
-                            flavor, aroma, and quality.</p>
+                        <h3>Quality</h3>
+                        <p>Every batch is carefully inspected and cupped to ensure it meets our exacting standards with quality products.</p>
                     </div>
                 </div>
 
@@ -549,14 +587,14 @@
                     <div class="process-content">
                         <h3>Roasting</h3>
                         <p>Our master roasters use state-of-the-art equipment to precisely control temperature and
-                            timing, bringing out the unique characteristics of each bean.</p>
+                            timing must be keepup.</p>
                     </div>
                 </div>
 
                 <div class="process-item"
                     style="background-image: url('https://www.coffeebeancorral.com/blog/image.axd?picture=/andrew-neel-66NjVBij7P8-unsplash.jpg'); background-size: cover; background-position: center;">
                     <div class="process-content">
-                        <h3>Cooling & Resting</h3>
+                        <h3>Resting</h3>
                         <p>Freshly roasted beans are rapidly cooled to stop the roasting process, then allowed to rest
                             for optimal flavor development.</p>
                     </div>
@@ -567,7 +605,7 @@
                     <div class="process-content">
                         <h3>Brewing</h3>
                         <p>The final step where our carefully roasted beans transform into the perfect cup, delivering
-                            the full spectrum of flavors we've worked so hard to develop.</p>
+                            the full spectrum of flavors.</p>
                     </div>
                 </div>
 
@@ -575,8 +613,7 @@
                     style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwSLngkCw6KbE5fClw3XdFJcWFX7XYbYFO3g&s'); background-size: cover; background-position: center;">
                     <div class="process-content">
                         <h3>Packaging</h3>
-                        <p>We package our coffee in specially designed bags with one-way valves to preserve freshness
-                            and protect the delicate flavors we've worked so hard to develop.</p>
+                        <p>We package our coffee in specially designed bags with one-way valves to preserve freshness with all products.</p>
                     </div>
                 </div>
             </div>

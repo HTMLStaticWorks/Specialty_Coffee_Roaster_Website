@@ -72,6 +72,21 @@
             border-radius: 20px;
             box-shadow: var(--shadow-heavy);
             border: 1px solid rgba(212, 165, 116, 0.1);
+            position: relative; /* For absolutely positioned toggles */
+        }
+
+        .auth-card-toggles {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            gap: 0.8rem;
+            z-index: 10;
+        }
+
+        [dir="rtl"] .auth-card-toggles {
+            right: auto;
+            left: 1.5rem;
         }
 
         .auth-form h3 {
@@ -364,11 +379,18 @@
         <div class="auth-content">
             <div class="auth-form-wrapper">
                 <div class="auth-form-container">
+                    <div class="auth-card-toggles">
+                        <button class="rtl-btn" id="rtl-toggle-card" aria-label="Toggle RTL" title="Toggle RTL"></button>
+                        <button id="theme-toggle-card" class="theme-btn" aria-label="Toggle theme">
+                            <span class="theme-icon-light">☀️</span>
+                            <span class="theme-icon-dark">🌙</span>
+                        </button>
+                    </div>
                     <!-- Website Logo and Name -->
 
 
                     <form class="auth-form" id="registerForm">
-                        <h3>Create Account</h3>
+                        <h3>Create</h3>
 
                             <div class="form-group">
                                 <label for="firstName" class="form-label">First Name</label>

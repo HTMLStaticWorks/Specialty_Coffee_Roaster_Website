@@ -21,8 +21,8 @@ function initThemeToggle() {
     const savedTheme = localStorage.getItem('coffeeTheme') || 'light';
     html.setAttribute('data-theme', savedTheme);
 
-    // Wire up every theme-toggle button on the page (desktop + mobile)
-    const toggleBtns = document.querySelectorAll('#theme-toggle, .theme-toggle-btn');
+    // Wire up every theme-toggle button on the page (desktop + mobile + cards)
+    const toggleBtns = document.querySelectorAll('#theme-toggle, .theme-toggle-btn, .theme-btn');
     toggleBtns.forEach(btn => {
         btn.addEventListener('click', function () {
             const current = html.getAttribute('data-theme') || 'light';
@@ -37,7 +37,7 @@ function initThemeToggle() {
 // ===== RTL Toggle =====
 function initRtlToggle() {
     const html = document.documentElement;
-    const rtlBtns = document.querySelectorAll('#rtl-toggle, .rtl-btn');
+    const rtlBtns = document.querySelectorAll('#rtl-toggle, .rtl-btn, .rtl-toggle-btn');
 
     // Apply saved layout
     const savedRtl = localStorage.getItem('coffeeRtl') === 'true';
