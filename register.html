@@ -75,16 +75,7 @@
             position: relative; /* For absolutely positioned toggles */
         }
 
-        .auth-card-top-controls {
-            display: flex;
-            justify-content: flex-end;
-            gap: 0.8rem;
-            margin-bottom: 1rem;
-        }
-
-        [dir="rtl"] .auth-card-top-controls {
-            justify-content: flex-start;
-        }
+        /* Controls moved to .auth-page-floating-controls (see style.css) */
 
         .auth-form h3 {
             color: var(--primary-brown);
@@ -348,6 +339,15 @@
 
 <body class="auth-page-body">
 
+    <!-- Floating RTL & Theme Controls (top-right, outside card) -->
+    <div class="auth-page-floating-controls">
+        <button class="rtl-btn" id="rtl-toggle-card" aria-label="Toggle RTL" title="Toggle RTL">Rtl</button>
+        <button id="theme-toggle-card" class="theme-btn" aria-label="Toggle theme">
+            <span class="theme-icon-light">☀️</span>
+            <span class="theme-icon-dark">🌙</span>
+        </button>
+    </div>
+
     <!-- Header -->
     <header class="header auth-header">
         <nav class="nav-container">
@@ -378,14 +378,6 @@
         <div class="auth-content">
             <div class="auth-form-wrapper">
                 <div class="auth-form-container">
-                    <div class="auth-card-top-controls">
-                        <button class="rtl-btn" id="rtl-toggle-card" aria-label="Toggle RTL"
-                            title="Toggle RTL">Rtl</button>
-                        <button id="theme-toggle-card" class="theme-btn" aria-label="Toggle theme">
-                            <span class="theme-icon-light">☀️</span>
-                            <span class="theme-icon-dark">🌙</span>
-                        </button>
-                    </div>
                     <!-- Website Logo and Name -->
 
 

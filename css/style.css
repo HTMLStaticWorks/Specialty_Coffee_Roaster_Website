@@ -484,12 +484,44 @@ a:focus {
 
 /* Apply padding directly to content so background image flows behind header */
 .auth-page-wrapper .auth-content {
-    padding-top: 100px !important;
+    padding-top: 160px !important; /* Space for 100px header + floating controls */
 }
 
 @media (max-width: 1023px) {
     .auth-page-wrapper .auth-content {
-        padding-top: 80px !important;
+        padding-top: 140px !important; /* Space for 80px header + floating controls */
+    }
+}
+
+/* ===== Auth Page Floating Controls (RTL + Theme Toggles) ===== */
+/* Desktop: sit just below the 100px header, right-aligned */
+.auth-page-floating-controls {
+    position: absolute; /* Scroll with the page instead of staying fixed! */
+    top: 110px; /* below the 100px header */
+    right: 1.5rem;
+    display: flex;
+    gap: 0.6rem;
+    z-index: 990; /* Scroll under the header (which is 1000) */
+    align-items: center;
+}
+
+/* Mobile: sit just below the 80px header */
+@media (max-width: 1023px) {
+    .auth-page-floating-controls {
+        top: 90px; /* below the 80px mobile header */
+        right: 1rem;
+    }
+}
+
+/* RTL: mirror to left side */
+[dir="rtl"] .auth-page-floating-controls {
+    right: auto;
+    left: 1rem;
+}
+
+@media (min-width: 1024px) {
+    [dir="rtl"] .auth-page-floating-controls {
+        left: 1.5rem;
     }
 }
 
@@ -872,11 +904,29 @@ a:focus {
     overflow: hidden;
 }
 
-[data-theme="light"] .theme-btn,
-[data-theme="light"] .rtl-btn {
-    background: rgba(17, 24, 39, 0.05) !important;
-    border: 1px solid rgba(17, 24, 39, 0.2) !important;
+/* Header and Auth Floating Controls always stay white-on-dark (backgrounds are dark) */
+.header .theme-btn,
+.header .rtl-btn,
+.auth-page-floating-controls .theme-btn,
+.auth-page-floating-controls .rtl-btn {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: #FFFFFF !important;
+}
+
+/* Toggles inside the card adapt to light/dark theme (if any are used in the future) */
+[data-theme="light"] .auth-form-container .theme-btn,
+[data-theme="light"] .auth-form-container .rtl-btn {
+    background: rgba(17, 24, 39, 0.07) !important;
+    border: 1px solid rgba(17, 24, 39, 0.25) !important;
     color: #111827 !important;
+}
+
+[data-theme="dark"] .auth-form-container .theme-btn,
+[data-theme="dark"] .auth-form-container .rtl-btn {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #FFFFFF !important;
 }
 
 .theme-btn:hover,
