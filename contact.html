@@ -13,6 +13,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
@@ -55,13 +58,56 @@
 
         .contact-info-card h3 {
             color: var(--primary-brown);
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-sm);
             font-size: clamp(1.25rem, 3vw, 1.5rem);
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: var(--space-xs);
             word-wrap: break-word;
             overflow-wrap: break-word;
+            font-weight: 800 !important;
+        }
+
+        .contact-card-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(51, 65, 85, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
+            font-size: 1.75rem;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(51, 65, 85, 0.2);
+        }
+
+        .contact-info-card:hover .contact-card-icon {
+            background: var(--accent-gold);
+            color: var(--white);
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(51, 65, 85, 0.3);
+        }
+
+        [data-theme="dark"] .contact-card-icon {
+            background: rgba(197, 160, 89, 0.05);
+            border-color: rgba(197, 160, 89, 0.2);
+            color: #FFFFFF;
+        }
+
+        [data-theme="dark"] .contact-card-icon i {
+            color: #FFFFFF !important;
+        }
+
+        [data-theme="dark"] .contact-info-card:hover .contact-card-icon {
+            background: #FFFFFF;
+            color: #000000;
+        }
+
+        [data-theme="dark"] .contact-info-card:hover .contact-card-icon i {
+            color: #000000 !important;
         }
 
         .contact-info-card p {
@@ -157,7 +203,7 @@
         }
 
         [data-theme="dark"] .map-header-content .section-title {
-            color: #2C1810 !important;
+            color: #111111 !important;
         }
 
         /* New Map Section Styles */
@@ -229,7 +275,7 @@
 
         /* 💡 Theme-aware visibility for Map Info Section */
         .map-action-bar h3, .map-action-bar p {
-            color: #2C1810 !important; /* Force high contrast dark in light mode */
+            color: #111111 !important; /* Force high contrast dark in light mode */
         }
 
         [data-theme="dark"] .map-action-bar h3 { color: var(--accent-gold) !important; }
@@ -241,7 +287,7 @@
         }
 
         .info-card p {
-            color: #FFF8DC !important;
+            color: #F1F5F9 !important;
             opacity: 1 !important;
         }
 
@@ -462,7 +508,7 @@
 
                     <!-- Mobile Only: Buttons inside menu overlay -->
                     <div class="mobile-only-buttons">
-                        <button class="rtl-btn" id="rtl-toggle-mobile" aria-label="Toggle RTL" title="Toggle RTL"></button>
+                        <button class="rtl-btn" id="rtl-toggle-mobile" aria-label="Toggle RTL" title="Toggle RTL">Rtl</button>
                         <button id="theme-toggle-mobile" class="theme-btn" aria-label="Toggle theme">
                             <span class="theme-icon-light">☀️</span>
                             <span class="theme-icon-dark">🌙</span>
@@ -476,7 +522,7 @@
             <div class="header-right">
                 <!-- Desktop Only: Buttons in header corner -->
                 <div class="nav-buttons desktop-only">
-                    <button class="rtl-btn" id="rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"></button>
+                    <button class="rtl-btn" id="rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">Rtl</button>
                     <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
                         <span class="theme-icon-light">☀️</span>
                         <span class="theme-icon-dark">🌙</span>
@@ -572,13 +618,13 @@
 
 /* TITLE */
 .contact-title {
-    font-size: 100px;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
     font-weight: 700;
     color: #FFFFFF;
 }
 
 .contact-title span {
-    color: #FFD700;
+    color: #FFFFFF;
 }
 
 /* PARAGRAPH */
@@ -591,8 +637,8 @@
 
 /* QUOTES */
 .quote {
-    color: #FFD700;
-    font-size: 30px;
+    color: #FFFFFF;
+    font-size: 1.1rem;
     font-weight: bold;
 }
 
@@ -619,8 +665,8 @@
 
 /* PRIMARY BUTTON */
 .primary-btn {
-    background: #FFD700;
-    color: #2b1d0e;
+    background: #FFFFFF;
+    color: #000000;
 }
 
 .primary-btn:hover {
@@ -630,26 +676,26 @@
 
 /* SECONDARY BUTTON */
 .secondary-btn {
-    border: 2px solid #FFD700;
-    color: #FFD700;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
 }
 
 .secondary-btn:hover {
-    background: #FFD700;
-    color: #2b1d0e;
+    background: #FFFFFF;
+    color: #000000;
     transform: translateY(-3px);
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .contact-title {
-        font-size: 75px;
+        font-size: clamp(2rem, 5vw, 3.5rem);
     }
 }
 
 @media (max-width: 480px) {
     .contact-text {
-        font-size: 30px;
+        font-size: 1.1rem;
     }
 }
 
@@ -662,22 +708,34 @@
                 <!-- Contact Information -->
                 <div class="contact-info">
                     <div class="contact-info-card">
-                        <h3><i class="fas fa-map-marker-alt"></i> Visit Us</h3>
+                        <div class="contact-card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Visit Us</h3>
                         <p>123 Coffee Street, Brew City, BC 12345</p>
                     </div>
 
                     <div class="contact-info-card">
-                        <h3><i class="fas fa-phone"></i> Call Us</h3>
+                        <div class="contact-card-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Call Us</h3>
                         <p>(555) 123-4567</p>
                     </div>
 
                     <div class="contact-info-card">
-                        <h3><i class="fas fa-envelope"></i> Email Us</h3>
+                        <div class="contact-card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
                         <p>hello@brewora.com</p>
                     </div>
 
                     <div class="contact-info-card">
-                        <h3><i class="fas fa-share-alt"></i> Social Connect</h3>
+                        <div class="contact-card-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>Social Connect</h3>
                         <div class="social-icons" style="margin-top: 1rem;">
                             <a href="#" class="social-icon" aria-label="Facebook" style="background: #1877F2;">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
@@ -782,9 +840,9 @@
 
                 <!-- Action Bar -->
                 <div class="map-action-bar"
-                    style="background: #FFF8DC; padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center;">
+                    style="background: #F1F5F9; padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center;">
                     <div>
-                        <h3 style="color: #2C1810; margin: 0 0 0.5rem 0; font-size: 1.5rem;">Ready to
+                        <h3 style="color: #111111; margin: 0 0 0.5rem 0; font-size: 1.5rem;">Ready to
                             Visit?</h3>
                         <p style="color: #666666; margin: 0; font-size: 1rem;">We're open daily and ready to
                             serve you the best coffee!</p>
@@ -792,7 +850,7 @@
                     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                         <a href="https://www.google.com/maps/dir/?api=1&destination=123+Coffee+Street+Brew+City+BC+12345"
                             target="_blank" class="btn btn-primary"
-                            style="background: var(--accent-gold); color: #2C1810; padding: 1rem 2rem; font-weight: 600; border-radius: 30px;">
+                            style="background: var(--accent-gold); color: #111111; padding: 1rem 2rem; font-weight: 600; border-radius: 30px;">
                             🗺️ Directions
                         </a>
                         <a href="tel:5551234567" class="btn btn-secondary"
@@ -950,6 +1008,17 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

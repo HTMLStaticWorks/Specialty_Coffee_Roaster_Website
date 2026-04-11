@@ -5,16 +5,16 @@
 /* ===== CSS Variables ===== */
 :root {
     /* Primary Colors - Enhanced for better contrast */
-    --primary-brown: #1A0F0A;
-    --secondary-brown: #2C1810;
-    --light-brown: #5D4037;
-    --cream: #FFF8DC;
-    --light-cream: #FFFEF7;
+    --primary-brown: #111827;
+    --secondary-brown: #064E3B;
+    --light-brown: #374151;
+    --cream: #F1F5F9;
+    --light-cream: #F8FAFC;
     --charcoal: #1A1A1A;
     --dark-gray: #111111;
     --medium-gray: #222222;
-    --accent-gold: #A67C52;
-    --light-gold: #C49060;
+    --accent-gold: #C5A059;
+    --light-gold: #9CA3AF;
     --white: #FFFFFF;
     --black: #000000;
     --pure-black: #000000;
@@ -24,7 +24,7 @@
     --text-on-dark: #FFFFFF;
     --text-on-light: #000000;
     --text-muted: #1A1A1A;
-    --text-accent: #6B4226;
+    --text-accent: #374151;
 
     /* Typography */
     --font-primary: 'Times New Roman', Times, serif;
@@ -50,12 +50,12 @@
 
     /* Theme Semantic Variables - Light Default */
     --bg-primary: #FFFFFF;
-    --bg-secondary: #F8F5F0;
+    --bg-secondary: #F1F5F9;
     --bg-card: #FFFFFF;
     --text-main: #000000;
     --text-sub: #111111;
     --border-main: rgba(0, 0, 0, 0.15);
-    --header-bg: #1A0F0A;
+    --header-bg: #111827;
     --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     --title-color: #000000;
     --find-us-color: #FFFFFF;
@@ -71,14 +71,14 @@
     --border-main: rgba(255, 255, 255, 0.2);
     --header-bg: #000000;
     --card-shadow: 0 4px 25px rgba(0, 0, 0, 0.8);
-    --title-color: #FFD700;
-    --primary-brown: #FFD700;
-    --secondary-brown: #FFAC1C;
+    --title-color: #C5A059;
+    --primary-brown: #C5A059;
+    --secondary-brown: #A68445;
     --text-muted: #E0E0E0;
     --cream: #000000;
     --light-cream: #000000;
     --text-on-accent: #000000;
-    --find-us-color: #FFD700;
+    --find-us-color: #C5A059;
 }
 
 /* ===== Reset & Base Styles ===== */
@@ -171,7 +171,7 @@ header *,
 
 .header,
 header {
-    background-color: #1A0F0A !important;
+    background-color: #111827 !important;
 }
 
 [data-theme="dark"] .header,
@@ -246,20 +246,20 @@ header {
 [data-theme="dark"] .auth-form-container h3,
 [data-theme="dark"] .menu-list-item h4,
 [data-theme="dark"] .menu-item-name {
-    color: #FFD700 !important;
+    color: #C5A059 !important;
 }
 
 /* Fix Headers/Categories in Menu/Blog pages globally */
 .menu-category-title,
 .menu-subtitle,
 .section-title {
-    color: var(--primary-brown) !important;
+    color: #000000 !important;
 }
 
 [data-theme="dark"] .menu-category-title,
 [data-theme="dark"] .menu-subtitle,
 [data-theme="dark"] .section-title {
-    color: #FFD700 !important;
+    color: #C5A059 !important;
 }
 
 /* Enhanced H1 visibility for all themes */
@@ -283,7 +283,7 @@ h1 {
 /* H1 on cream/light backgrounds */
 .section[style*="background: var(--cream)"] h1,
 .section[style*="background:var(--cream)"] h1 {
-    color: var(--primary-brown) !important;
+    color: #000000 !important;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
     font-weight: 800;
 }
@@ -478,7 +478,7 @@ a:focus {
     display: flex;
     flex-direction: column;
     position: relative;
-    background: #1A0F0A;
+    background: #111827;
     /* Roastery Base Color: Kills the white line */
 }
 
@@ -541,7 +541,7 @@ a:focus {
     /* Scaled up for 3.6rem brand */
     height: 60px;
     background: var(--accent-gold);
-    color: #2C1810;
+    color: #064E3B;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -555,7 +555,7 @@ a:focus {
     width: 35px;
     /* Scaled up for 55px container */
     height: 35px;
-    color: #2C1810;
+    color: #064E3B;
     transition: var(--transition-smooth);
 }
 
@@ -698,9 +698,14 @@ a:focus {
 }
 
 .nav-link.active {
-    background: var(--accent-gold);
-    color: var(--primary-brown) !important;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    background: #C5A059 !important;
+    color: #000000 !important;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4);
+}
+
+[data-theme="dark"] .nav-link.active,
+[data-theme="dark"] .nav-link.active * {
+    color: #000000 !important;
 }
 
 .nav-buttons {
@@ -716,8 +721,11 @@ a:focus {
 .rtl-btn {
     width: 44px;
     height: 44px;
+    padding: 0;
     /* Restored outer button size */
     border-radius: 50%;
+    font-size: 10px !important;
+    font-weight: 800;
     background: rgba(255, 255, 255, 0.1);
     border: none;
     display: flex;
@@ -726,8 +734,8 @@ a:focus {
     cursor: pointer;
     transition: var(--transition-smooth);
     color: var(--white);
-    font-size: 0.8rem;
-    /* Reduced internal emoji/txt size */
+    font-size: 12px;
+    font-weight: 800;
 }
 
 .theme-btn:hover,
@@ -746,10 +754,10 @@ a:focus {
     padding: 0 1.5rem !important;
     border-radius: 50px !important;
     background: var(--accent-gold) !important;
-    color: var(--primary-brown) !important;
+    color: #000000 !important;
     font-size: 1rem !important;
     font-weight: 700 !important;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3) !important;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3) !important;
     flex-shrink: 0 !important;
     text-transform: none !important;
 }
@@ -781,13 +789,13 @@ a:focus {
 
 .nav-btn.btn-secondary:hover {
     background: var(--white);
-    color: #2C1810;
+    color: #064E3B;
     /* always dark on white bg, regardless of theme */
 }
 
 .nav-btn.btn-primary {
     background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
-    color: #2C1810;
+    color: #064E3B;
     /* always dark on gold bg, regardless of theme */
 }
 
@@ -852,6 +860,8 @@ a:focus {
     width: 44px;
     height: 44px;
     border-radius: 12px;
+    font-size: 18px !important;
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -862,6 +872,13 @@ a:focus {
     overflow: hidden;
 }
 
+[data-theme="light"] .theme-btn,
+[data-theme="light"] .rtl-btn {
+    background: rgba(17, 24, 39, 0.05) !important;
+    border: 1px solid rgba(17, 24, 39, 0.2) !important;
+    color: #111827 !important;
+}
+
 .theme-btn:hover,
 .rtl-btn:hover {
     background: var(--accent-gold);
@@ -870,15 +887,8 @@ a:focus {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.rtl-btn::after {
-    content: 'あ/A';
-    font-size: 0.8rem;
-    font-weight: 700;
-}
 
-[dir="rtl"] .rtl-btn::after {
-    content: 'A/あ';
-}
+
 
 .theme-icon-light,
 .theme-icon-dark {
@@ -942,7 +952,7 @@ a:focus {
 
 .btn-primary {
     background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
-    color: #2C1810;
+    color: #064E3B;
     /* always dark on gold bg, regardless of theme */
     box-shadow: var(--shadow-light);
 }
@@ -960,7 +970,7 @@ a:focus {
 
 .btn-secondary:hover {
     background: var(--white);
-    color: #2C1810;
+    color: #064E3B;
     /* always dark on white bg, regardless of theme */
     transform: translateY(-2px);
 }
@@ -972,7 +982,7 @@ a:focus {
 }
 
 .btn-outline:hover {
-    background: var(--primary-brown);
+    background: #C5A059 !important;
     color: var(--white);
     transform: translateY(-2px);
 }
@@ -1622,17 +1632,17 @@ a:focus {
 }
 
 .section-title {
-    color: var(--primary-brown) !important;
+    color: #000000 !important;
     font-weight: 700;
 }
 
 .card-title {
-    color: var(--primary-brown) !important;
+    color: #000000 !important;
     font-weight: 600;
 }
 
 .menu-item-name {
-    color: var(--primary-brown) !important;
+    color: #000000 !important;
     font-weight: 600;
 }
 
@@ -1737,7 +1747,7 @@ a:focus {
 
 /* ===== Footer ===== */
 .footer {
-    background: #1A0F0A;
+    background: #111827;
     /* always dark, regardless of theme */
     color: #FFFFFF !important;
     padding: var(--space-xxl) 0 var(--space-md) 0;
@@ -2833,7 +2843,7 @@ a:focus {
     width: 60px;
     height: 60px;
     background: var(--accent-gold);
-    color: var(--primary-brown) !important;
+    color: #000000 !important;
     border-radius: 50%;
     display: none;
     align-items: center;
@@ -2872,6 +2882,6 @@ a:focus {
 }
 
 [data-theme="dark"] .back-to-top {
-    background: #FFD700;
+    background: #C5A059;
     color: #000000 !important;
 }

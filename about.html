@@ -198,7 +198,7 @@
         }
 
         [data-theme="dark"] .card .card-title {
-            color: #FFD700 !important;
+            color: #FFFFFF !important;
         }
 
         .timeline {
@@ -304,6 +304,8 @@
             }
         }
     </style>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -341,7 +343,7 @@
 
                     <!-- Mobile Only: Buttons inside menu overlay -->
                     <div class="mobile-only-buttons">
-                        <button class="rtl-btn" id="rtl-toggle-mobile" aria-label="Toggle RTL" title="Toggle RTL"></button>
+                        <button class="rtl-btn" id="rtl-toggle-mobile" aria-label="Toggle RTL" title="Toggle RTL">Rtl</button>
                         <button id="theme-toggle-mobile" class="theme-btn" aria-label="Toggle theme">
                             <span class="theme-icon-light">☀️</span>
                             <span class="theme-icon-dark">🌙</span>
@@ -355,7 +357,7 @@
             <div class="header-right">
                 <!-- Desktop Only: Buttons in header corner -->
                 <div class="nav-buttons desktop-only">
-                    <button class="rtl-btn" id="rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"></button>
+                    <button class="rtl-btn" id="rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">Rtl</button>
                     <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
                         <span class="theme-icon-light">☀️</span>
                         <span class="theme-icon-dark">🌙</span>
@@ -456,12 +458,12 @@
 }
 
 .about-title span {
-    color: #FFD700;
+    color: #FFFFFF;
 }
 
 /* TEXT */
 .about-text {
-    font-size: 60px;
+    font-size: clamp(1.25rem, 4vw, 2rem);
     line-height: 1.7;
     color: rgba(255,255,255,1);
     transition: 0.3s;
@@ -469,8 +471,8 @@
 
 /* QUOTES */
 .quote {
-    color: #FFD700;
-    font-size: 60px;
+    color: #FFFFFF;
+    font-size: clamp(1.25rem, 4vw, 2rem);
     font-weight: bold;
 }
 
@@ -495,7 +497,7 @@
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .about-title {
-        font-size: 75px;
+        font-size: clamp(2rem, 5vw, 3.5rem);
     }
 }
 
@@ -505,7 +507,7 @@
     }
 
     .about-text {
-        font-size: 30px;
+        font-size: 1.1rem;
     }
 }
 
@@ -833,6 +835,17 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

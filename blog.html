@@ -39,7 +39,7 @@
             cursor: pointer;
             transition: var(--transition-smooth);
             font-weight: 600;
-            color: #2C1810;
+            color: #111111;
             /* Always dark brown for visibility on light/gold backgrounds */
             font-family: var(--font-secondary);
             white-space: nowrap;
@@ -48,7 +48,7 @@
         .category-btn:hover,
         .category-btn.active {
             background: var(--accent-gold);
-            color: #2C1810;
+            color: #111111;
             transform: translateY(-2px);
             box-shadow: var(--shadow-light);
         }
@@ -113,7 +113,7 @@
 
         .blog-category {
             background: var(--accent-gold);
-            color: #2C1810;
+            color: #111111;
             padding: 0.25rem 0.75rem;
             border-radius: 15px;
             font-weight: 600;
@@ -227,6 +227,8 @@
             }
         }
     </style>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -264,7 +266,7 @@
 
                     <!-- Mobile Only: Buttons inside menu overlay -->
                     <div class="mobile-only-buttons">
-                        <button class="rtl-btn" id="rtl-toggle-mobile" aria-label="Toggle RTL" title="Toggle RTL"></button>
+                        <button class="rtl-btn" id="rtl-toggle-mobile" aria-label="Toggle RTL" title="Toggle RTL">Rtl</button>
                         <button id="theme-toggle-mobile" class="theme-btn" aria-label="Toggle theme">
                             <span class="theme-icon-light">☀️</span>
                             <span class="theme-icon-dark">🌙</span>
@@ -278,7 +280,7 @@
             <div class="header-right">
                 <!-- Desktop Only: Buttons in header corner -->
                 <div class="nav-buttons desktop-only">
-                    <button class="rtl-btn" id="rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"></button>
+                    <button class="rtl-btn" id="rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">Rtl</button>
                     <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
                         <span class="theme-icon-light">☀️</span>
                         <span class="theme-icon-dark">🌙</span>
@@ -374,13 +376,13 @@
 
 /* TITLE */
 .blog-title {
-    font-size: 100px;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
     font-weight: 700;
     color: #FFFFFF;
 }
 
 .blog-title span {
-    color: #FFD700;
+    color: #FFFFFF;
 }
 
 /* PARAGRAPH */
@@ -393,8 +395,8 @@
 
 /* QUOTES */
 .quote {
-    color: #FFD700;
-    font-size: 30px;
+    color: #FFFFFF;
+    font-size: 1.1rem;
     font-weight: bold;
 }
 
@@ -421,8 +423,8 @@
 
 /* PRIMARY BUTTON */
 .primary-btn {
-    background: #FFD700;
-    color: #2b1d0e;
+    background: #FFFFFF;
+    color: #000000;
 }
 
 .primary-btn:hover {
@@ -432,26 +434,26 @@
 
 /* SECONDARY BUTTON */
 .secondary-btn {
-    border: 2px solid #FFD700;
-    color: #FFD700;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
 }
 
 .secondary-btn:hover {
-    background: #FFD700;
-    color: #2b1d0e;
+    background: #FFFFFF;
+    color: #000000;
     transform: translateY(-3px);
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .blog-title {
-        font-size: 75px;
+        font-size: clamp(2rem, 5vw, 3.5rem);
     }
 }
 
 @media (max-width: 480px) {
     .blog-text {
-        font-size: 30px;
+        font-size: 1.1rem;
     }
 }
 
@@ -759,6 +761,17 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
