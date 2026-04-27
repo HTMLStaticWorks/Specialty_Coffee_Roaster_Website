@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="%23D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>'>
+    <title>Seeds | Wholesale Pricing</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Center pricing card content and lists */
+        .card-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card-content ul {
+            text-align: center;
+            list-style-position: inside;
+            padding: 0;
+            width: 100%;
+        }
+        .card-btn {
+            margin: 0 auto;
+        }
+
+        /* Pricing grid specific layout */
+        .cards-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 30px !important;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 991px) {
+            .cards-grid {
+                grid-template-columns: 1fr !important;
+                max-width: 500px;
+            }
+            .card {
+                transform: none !important; /* Remove scale on mobile for better fit */
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Center custom quote section */
+        .custom-quote-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 30px;
+        }
+        .custom-quote-description {
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+                Seeds
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="home-2.html" class="nav-item">Home 2</a>
+                <a href="about.html" class="nav-item">About</a>
+                <a href="services.html" class="nav-item">Services</a>
+                <a href="pricing.html" class="nav-item active">Pricing</a>
+                <a href="contact.html" class="nav-item">Contact</a>
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <div class="mobile-toggles">
+                    <button class="toggle-btn" id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+                    <button class="toggle-btn" id="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+                    <a href="login.html" class="btn btn-outline login-btn">Login</a>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <button class="toggle-btn" id="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+                <button class="toggle-btn" id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+                <a href="login.html" class="btn btn-outline login-btn">Login</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Section 1: Page Header -->
+        <section class="hero"
+            style="height: 65vh; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://wholesale.espressocoffeeshop.com/themes/v12ecmxecs/assets/img/ws_3.png'); background-position: center; background-size: cover; display: flex; align-items: center; text-align: center;">
+            <div class="container">
+                <div class="hero-content" style="max-width: 900px; margin: 0 auto;">
+                    <h1
+                        style="color: white; margin-bottom: 25px; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                        Wholesale Pricing</h1>
+                    <p
+                        style="color: #F5F5F5; line-height: 1.6; text-shadow: 0 2px 5px rgba(0,0,0,0.3);">
+                        Transparent tiers for growing businesses.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Partnership Roadmap -->
+        <section class="container" style="padding: 100px 20px;">
+            <div class="section-header" style="margin-bottom: 80px; text-align: center;">
+                <h2 style="font-size: 3rem;">Your Journey to Coffee Excellence</h2>
+                <p style="color: var(--text-light); font-size: 1.15rem; max-width: 800px; margin: 20px auto 0;">From the
+                    first consultation to the final pour, we are with you every step of the way to ensure your coffee
+                    program is nothing short of exceptional.</p>
+            </div>
+            <div
+                style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 60px; position: relative; padding-left: 100px;">
+                <!-- Vertical Connector Line (Left Aligned) -->
+                <div
+                    style="position: absolute; top: 0; bottom: 0; left: 30px; width: 2px; background: linear-gradient(to bottom, transparent, var(--secondary), var(--secondary), transparent); z-index: 0;">
+                </div>
+
+                <div style="position: relative; z-index: 1;">
+                    <div
+                        style="position: absolute; left: -100px; top: 0; width: 60px; height: 60px; background: var(--secondary); color: #121212; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: 4px solid var(--container-bg); margin-left: 30px; transform: translateX(-50%);">
+                        1</div>
+                    <h3 style="margin-bottom: 10px; font-size: 1.8rem; color: var(--primary);">Consultation</h3>
+                    <p style="color: var(--text-light); font-size: 1.1rem; line-height: 1.8; max-width: 700px;">We
+                        analyze your volume, bar setup, and brand goals to recommend the perfect coffee program tailored
+                        to your unique business needs.</p>
+                </div>
+
+                <div style="position: relative; z-index: 1;">
+                    <div
+                        style="position: absolute; left: -100px; top: 0; width: 60px; height: 60px; background: var(--secondary); color: #121212; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: 4px solid var(--container-bg); margin-left: 30px; transform: translateX(-50%);">
+                        2</div>
+                    <h3 style="margin-bottom: 10px; font-size: 1.8rem; color: var(--primary);">Sample Tasting</h3>
+                    <p style="color: var(--text-light); font-size: 1.1rem; line-height: 1.8; max-width: 700px;">
+                        Experience our roast profiles firsthand with a curated cupping session for your team, helping
+                        you select the perfect flavors for your menu.</p>
+                </div>
+
+                <div style="position: relative; z-index: 1;">
+                    <div
+                        style="position: absolute; left: -100px; top: 0; width: 60px; height: 60px; background: var(--secondary); color: #121212; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: 4px solid var(--container-bg); margin-left: 30px; transform: translateX(-50%);">
+                        3</div>
+                    <h3 style="margin-bottom: 10px; font-size: 1.8rem; color: var(--primary);">Barista Training</h3>
+                    <p style="color: var(--text-light); font-size: 1.1rem; line-height: 1.8; max-width: 700px;">Our
+                        experts provide on-site extraction training and workflow optimization to ensure every shot
+                        extracted meets specialty coffee standards.</p>
+                </div>
+
+                <div style="position: relative; z-index: 1;">
+                    <div
+                        style="position: absolute; left: -100px; top: 0; width: 60px; height: 60px; background: var(--secondary); color: #121212; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: 4px solid var(--container-bg); margin-left: 30px; transform: translateX(-50%);">
+                        4</div>
+                    <h3 style="margin-bottom: 10px; font-size: 1.8rem; color: var(--primary);">Launch & Growth</h3>
+                    <p style="color: var(--text-light); font-size: 1.1rem; line-height: 1.8; max-width: 700px;">We ship
+                        your first order and provide ongoing support, including regular quality checks and technical
+                        assistance as your business expands.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Pricing Tiers (4 Cards) -->
+        <section style="background-color: var(--nav-bg); padding: 80px 0;">
+            <div class="container">
+                <div class="cards-grid">
+                    <div class="card" style="text-align: center;">
+                        <div class="card-content">
+                            <h3
+                                style="font-family: 'Inter', sans-serif; font-size: 1.2rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px;">
+                                Startup</h3>
+                            <h2 style="font-size: 3rem; margin: 20px 0; color: var(--primary);">10-20<span
+                                    style="font-size: 1rem; color: var(--text-light);"> lbs/wk</span></h2>
+                            <ul style="margin-bottom: 30px; line-height: 2;">
+                                <li>✓ Signature Espresso Blend</li>
+                                <li>✓ Bi-weekly delivery</li>
+                                <li>✓ Standard Support</li>
+                                <li style="color: var(--text-light); text-decoration: line-through;">Equipment Discounts
+                                </li>
+                            </ul>
+                            <a href="contact.html" class="btn btn-outline card-btn" style="width: 100%;">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="card"
+                        style="text-align: center; border: 2px solid var(--secondary); transform: scale(1.05); z-index: 1;">
+                        <div
+                            style="background-color: var(--secondary); color: #121212; padding: 5px 0; font-weight: bold; font-size: 0.9rem;">
+                            MOST POPULAR</div>
+                        <div class="card-content">
+                            <h3
+                                style="font-family: 'Inter', sans-serif; font-size: 1.2rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px;">
+                                Growth</h3>
+                            <h2 style="font-size: 3rem; margin: 20px 0; color: var(--primary);">25-50<span
+                                    style="font-size: 1rem; color: var(--text-light);"> lbs/wk</span></h2>
+                            <ul style="margin-bottom: 30px; line-height: 2;">
+                                <li>✓ Access to Single Origins</li>
+                                <li>✓ Weekly delivery</li>
+                                <li>✓ Priority Support</li>
+                                <li>✓ 10% Equipment Discount</li>
+                            </ul>
+                            <a href="contact.html" class="btn card-btn" style="width: 100%;">Get Started</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card" style="text-align: center;">
+                        <div class="card-content">
+                            <h3
+                                style="font-family: 'Inter', sans-serif; font-size: 1.2rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px;">
+                                Enterprise</h3>
+                            <h2 style="font-size: 3rem; margin: 20px 0; color: var(--primary);">100+<span
+                                    style="font-size: 1rem; color: var(--text-light);"> lbs/wk</span></h2>
+                            <ul style="margin-bottom: 30px; line-height: 2;">
+                                <li>✓ Private Label Options</li>
+                                <li>✓ Dedicated Logistics</li>
+                                <li>✓ Dedicated Account Manager</li>
+                                <li>✓ Wholesale Equipment Pricing</li>
+                            </ul>
+                            <a href="contact.html" class="btn btn-outline card-btn" style="width: 100%;">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Need Custom Pricing? -->
+        <section class="container custom-quote-section">
+            <div class="custom-quote-container">
+                <h2 class="custom-quote-title">Need a Custom Quote?</h2>
+                <p class="custom-quote-description">If you operate multiple locations or have specific requirements outside our standard tiers, our team is ready to build a customized proposal for your business.</p>
+                <a href="contact.html" class="btn">Contact Sales Team</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
+                          <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                          <line x1="6" y1="1" x2="6" y2="4"></line>
+                          <line x1="10" y1="1" x2="10" y2="4"></line>
+                          <line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
+                        Seeds
+                    </a>
+                    <p>Premium specialty coffee roasted to perfection. Focused on elevating the wholesale experience for
+                        cafes worldwide.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>📍 123 Roastery Ave, Coffee City, 90210</li>
+                        <li>📞 +1 (555) 123-4567</li>
+                        <li>✉️ wholesale@coffeeroaster.com</li>
+                        <li>🕒 Mon - Fri: 8:00 AM - 5:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Seeds. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

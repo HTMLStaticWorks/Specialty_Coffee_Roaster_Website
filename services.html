@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="%23D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>'>
+    <title>Seeds | Services</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Center card content and buttons */
+        .card-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card-btn {
+            margin: 0 auto;
+        }
+        /* Center content columns in split sections */
+        .split-content-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+        /* Service specific centering */
+        .features-grid > div {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="1" x2="6" y2="4"></line>
+                  <line x1="10" y1="1" x2="10" y2="4"></line>
+                  <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+                Seeds
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="home-2.html" class="nav-item">Home 2</a>
+                <a href="about.html" class="nav-item">About</a>
+                <a href="services.html" class="nav-item active">Services</a>
+                <a href="pricing.html" class="nav-item">Pricing</a>
+                <a href="contact.html" class="nav-item">Contact</a>
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <div class="mobile-toggles">
+                    <button class="toggle-btn" id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+                    <button class="toggle-btn" id="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+                    <a href="login.html" class="btn btn-outline login-btn">Login</a>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <button class="toggle-btn" id="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+                <button class="toggle-btn" id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+                <a href="login.html" class="btn btn-outline login-btn">Login</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Section 1: Page Header -->
+        <section class="hero" style="height: 65vh; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&w=1920&q=80'); background-position: center; background-size: cover; display: flex; align-items: center; text-align: center;">
+            <div class="container">
+                <div class="hero-content" style="max-width: 900px; margin: 0 auto;">
+                    <h1 style="color: white; margin-bottom: 25px; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">Wholesale Services</h1>
+                    <p style="color: #F5F5F5; line-height: 1.6; text-shadow: 0 2px 5px rgba(0,0,0,0.3);">Comprehensive solutions for specialty cafes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Custom Roasting & Private Labeling -->
+        <section class="container services-section">
+            <div class="services-flex-container">
+                <div class="services-content-col split-content-center">
+                    <h2 class="services-title">Custom Roasting & Private Labeling</h2>
+                    <p class="services-description">
+                        Elevate your brand with a signature coffee profile that is uniquely yours. We work closely with you to develop bespoke blends and single-origin offerings that align perfectly with your brand identity and flavor preferences.
+                    </p>
+                    <div class="features-grid">
+                        <div>
+                            <h4 style="color: var(--secondary); margin-bottom: 10px; font-size: 1.2rem;">✓ Profile Development</h4>
+                            <p style="font-size: 0.95rem; color: var(--text-light);">Direct collaboration with our Head Roaster to dial in your perfect flavor profile.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--secondary); margin-bottom: 10px; font-size: 1.2rem;">✓ Bespoke Packaging</h4>
+                            <p style="font-size: 0.95rem; color: var(--text-light);">Professional design support for custom labels and branded packaging solutions.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--secondary); margin-bottom: 10px; font-size: 1.2rem;">✓ Exclusive Sourcing</h4>
+                            <p style="font-size: 0.95rem; color: var(--text-light);">Access to limited-run micro-lots reserved exclusively for your brand.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--secondary); margin-bottom: 10px; font-size: 1.2rem;">✓ Scalable Volume</h4>
+                            <p style="font-size: 0.95rem; color: var(--text-light);">Flexible roasting schedules that grow alongside your business needs.</p>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn">Start Your Brand Journey</a>
+                </div>
+                <div class="label-feature-container services-image-col">
+                    <img src="images/private_label_coffee_packaging.png" alt="Custom Coffee Packaging" class="label-feature-img">
+                    <div class="label-feature-badge">
+                        Your Brand, Our Expertise
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Our Services (4 Cards) -->
+        <section style="background-color: var(--nav-bg); padding: 80px 0;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What We Offer</h2>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=800&q=80" alt="Supply" class="card-img">
+                        <div class="card-content">
+                            <h3 class="card-title">Coffee Supply</h3>
+                            <p class="card-text">Consistent, scheduled deliveries of freshly roasted signature blends and rotating single origins.</p>
+                            <a href="contact.html" class="btn btn-outline card-btn">Inquire</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://cdnimg.webstaurantstore.com/uploads/seo_category/2024/2/Coffee-Supply/coffeeshop-photogrid_imagescategory_cappuccino-espresso-machines.jpg" alt="Equipment" class="card-img">
+                        <div class="card-content">
+                            <h3 class="card-title">Equipment Sales</h3>
+                            <p class="card-text">Exclusive pricing on premium espresso machines, grinders, and brewing equipment.</p>
+                            <a href="contact.html" class="btn btn-outline card-btn">Inquire</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://www.coffeequest.co.uk/cdn/shop/files/High-Res-Coffee-Quest-166.jpg?v=1748343120&width=550" alt="Maintenance" class="card-img">
+                        <div class="card-content">
+                            <h3 class="card-title">Tech Support</h3>
+                            <p class="card-text">24/7 emergency dispatch and routine preventative maintenance for all your coffee gear.</p>
+                            <a href="contact.html" class="btn btn-outline card-btn">Inquire</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfxUuvoK9XKFuNwLBQcysAS9Ux5Ymz8WHezw&s" alt="Training" class="card-img">
+                        <div class="card-content">
+                            <h3 class="card-title">Staff Education</h3>
+                            <p class="card-text">On-site extraction training, milk chemistry workshops, and workflow optimization.</p>
+                            <a href="contact.html" class="btn btn-outline card-btn">Inquire</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://media.istockphoto.com/id/1192341556/vector/coffee-drinks-menu-price-list-vector-template.jpg?s=612x612&w=0&k=20&c=DAihlfbkoNAo_r49V73yiuSJJo9s7hmfxtvZkZReP9Y=" alt="Menu" class="card-img">
+                        <div class="card-content">
+                            <h3 class="card-title">Menu Curation</h3>
+                            <p class="card-text">Expert assistance in developing a seasonal coffee menu that maximizes your margins.</p>
+                            <a href="contact.html" class="btn btn-outline card-btn">Inquire</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfYsI6w9bX2nX4ghez_TgQi09SS_fjhhTl0A&s" alt="Water" class="card-img">
+                        <div class="card-content">
+                            <h3 class="card-title">Water Solutions</h3>
+                            <p class="card-text">Customized filtration systems designed to protect your equipment and improve flavor.</p>
+                            <a href="contact.html" class="btn btn-outline card-btn">Inquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Workflow Consultation -->
+        <section class="container services-section">
+            <div class="audit-container">
+                <div class="audit-image-col">
+                    <img src="https://mtpak.coffee/wp-content/uploads/2022/08/How-to-choose-the-perfect-cafe-to-sell-your-coffee-wholesale1.jpg" alt="Consulting" class="audit-img">
+                </div>
+                <div class="audit-content-col split-content-center">
+                    <h2 class="audit-title">Free Cafe Audit</h2>
+                    <p class="audit-description">Are you opening a new location or looking to revamp an existing one? Our experts will conduct a comprehensive audit of your bar layout, equipment needs, and menu design.</p>
+                    <ul class="audit-list">
+                        <li>✓ Ergonomic bar design consultation</li>
+                        <li>✓ Water quality testing and filtration</li>
+                        <li>✓ Signature beverage development</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Book Free Audit</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
+                          <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                          <line x1="6" y1="1" x2="6" y2="4"></line>
+                          <line x1="10" y1="1" x2="10" y2="4"></line>
+                          <line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
+                        Seeds
+                    </a>
+                    <p>Premium specialty coffee roasted to perfection. Focused on elevating the wholesale experience for cafes worldwide.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>📍 123 Roastery Ave, Coffee City, 90210</li>
+                        <li>📞 +1 (555) 123-4567</li>
+                        <li>✉️ wholesale@coffeeroaster.com</li>
+                        <li>🕒 Mon - Fri: 8:00 AM - 5:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Seeds. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="%23D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>'>
+    <title>Seeds | Wholesale Dashboard</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Center dashboard card content */
+        .invoice-details {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        
+        .stat-card, 
+        .product-info, 
+        .guide-card, 
+        .timeline-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Ensure specific elements within cards are centered */
+        .stat-card h3, .stat-card h2, .stat-card p,
+        .product-info h3, .product-info p, .product-info .product-price,
+        .guide-card h3, .guide-card p,
+        .timeline-content h4, .timeline-content p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Invoice details points start in vertical line */
+        .invoice-details h4, .invoice-details p {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        /* Center icons/badges in cards */
+        .guide-icon, .invoice-icon {
+            margin: 0 auto 15px auto;
+        }
+    </style>
+</head>
+<body style="background-color: var(--bg-color);">
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                        <line x1="6" y1="1" x2="6" y2="4"></line>
+                        <line x1="10" y1="1" x2="10" y2="4"></line>
+                        <line x1="14" y1="1" x2="14" y2="4"></line>
+                    </svg>
+                    <div style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.8rem; white-space: nowrap; color: var(--text-main);">
+                        Seeds
+                    </div>
+                </a>
+                <button id="close-sidebar" style="display: none; background: none; border: none; font-size: 1.5rem; color: var(--text-main); cursor: pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li><a href="#" class="active" data-section="overview">Overview</a></li>
+                <li><a href="#" data-section="place-order">Place Order</a></li>
+                <li><a href="#" data-section="order-history">Order History</a></li>
+                <li><a href="#" data-section="track-shipments">Track Shipments</a></li>
+                <li><a href="#" data-section="invoices">Invoices</a></li>
+                <li><a href="#" data-section="brewing-guides">Brewing Guides</a></li>
+                <li><a href="#" data-section="account-settings">Account Settings</a></li>
+            </ul>
+            
+
+            <div class="logout-container">
+                <button id="logout-btn" class="btn btn-outline" style="width: 100%; text-align: center;">Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="header-top">
+                    <button class="hamburger" id="dashboard-hamburger">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="header-center">
+                        <h1 id="section-title">Overview</h1>
+                    </div>
+                    <div class="header-actions">
+                        <button class="toggle-btn" id="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+                        <button class="toggle-btn" id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+                        <div class="profile-logo" title="View Profile">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <h1 id="section-title-mobile">Overview</h1>
+                </div>
+            </header>
+
+            <!-- Overview Section -->
+            <div id="overview" class="dashboard-section active">
+                <div class="stat-cards">
+                    <div class="stat-card">
+                        <h3 style="color: var(--text-light); font-size: 1rem; margin-bottom: 10px; font-family: 'Inter', sans-serif;">Next Delivery</h3>
+                        <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Oct 24, 2026</h2>
+                        <p style="color: #28a745; font-weight: 500; font-size: 0.9rem;">Status: Processing</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 style="color: var(--text-light); font-size: 1rem; margin-bottom: 10px; font-family: 'Inter', sans-serif;">Last Order</h3>
+                        <h2 style="font-size: 1.8rem; margin-bottom: 10px;">45 lbs</h2>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">Delivered on Oct 17</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 style="color: var(--text-light); font-size: 1rem; margin-bottom: 10px; font-family: 'Inter', sans-serif;">Account Balance</h3>
+                        <h2 style="font-size: 1.8rem; margin-bottom: 10px;">$0.00</h2>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">All invoices paid</p>
+                    </div>
+                </div>
+
+                <div style="background-color: var(--card-bg); border-radius: 8px; border: 1px solid var(--border-color); padding: 30px; margin-bottom: 40px;">
+                    <h2 style="font-size: 1.5rem; margin-bottom: 20px; text-align: center;">Recent Orders</h2>
+                    <div class="table-responsive">
+                        <table style="width: 100%; text-align: left; border-collapse: collapse; min-width: 600px;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid var(--border-color);">
+                                    <th style="padding: 15px 10px; color: var(--text-light);">Order ID</th>
+                                    <th style="padding: 15px 10px; color: var(--text-light);">Date</th>
+                                    <th style="padding: 15px 10px; color: var(--text-light);">Items</th>
+                                    <th style="padding: 15px 10px; color: var(--text-light);">Total</th>
+                                    <th style="padding: 15px 10px; color: var(--text-light);">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="padding: 15px 10px; font-weight: 500;">#ORD-9082</td>
+                                    <td style="padding: 15px 10px;">Oct 22, 2026</td>
+                                    <td style="padding: 15px 10px;">3 Items (45 lbs)</td>
+                                    <td style="padding: 15px 10px;">$675.00</td>
+                                    <td style="padding: 15px 10px;"><span style="background-color: rgba(212,175,55,0.2); color: #B8962A; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: bold;">Processing</span></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="padding: 15px 10px; font-weight: 500;">#ORD-9021</td>
+                                    <td style="padding: 15px 10px;">Oct 15, 2026</td>
+                                    <td style="padding: 15px 10px;">3 Items (45 lbs)</td>
+                                    <td style="padding: 15px 10px;">$675.00</td>
+                                    <td style="padding: 15px 10px;"><span style="background-color: rgba(40,167,69,0.2); color: #28a745; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: bold;">Delivered</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Place Order Section -->
+            <div id="place-order" class="dashboard-section">
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-badge">Top Seller</div>
+                        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=500&q=80" alt="Espresso Blend" class="product-img">
+                        <div class="product-info">
+                            <h3>Midnight Espresso</h3>
+                            <p>Dark Roast | Notes of Cocoa & Molasses</p>
+                            <div class="product-price">$15.00 / lb</div>
+                            <button class="btn" style="width: 100%;">Add to Order</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1580915411954-282cb1b0d780?auto=format&fit=crop&w=500&q=80" alt="Ethiopia Yirgacheffe" class="product-img">
+                        <div class="product-info">
+                            <h3>Ethiopia Yirgacheffe</h3>
+                            <p>Light Roast | Notes of Jasmine & Lemon</p>
+                            <div class="product-price">$18.00 / lb</div>
+                            <button class="btn" style="width: 100%;">Add to Order</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=500&q=80" alt="House Blend" class="product-img">
+                        <div class="product-info">
+                            <h3>Heritage House Blend</h3>
+                            <p>Medium Roast | Notes of Nut & Caramel</p>
+                            <div class="product-price">$14.00 / lb</div>
+                            <button class="btn" style="width: 100%;">Add to Order</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=500&q=80" alt="Decaf Colombia" class="product-img">
+                        <div class="product-info">
+                            <h3>Decaf Colombia</h3>
+                            <p>Swiss Water Process | Notes of Red Fruit & Vanilla</p>
+                            <div class="product-price">$16.00 / lb</div>
+                            <button class="btn" style="width: 100%;">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order History Section -->
+            <div id="order-history" class="dashboard-section">
+                <div class="history-container">
+                    <div class="history-filters">
+                        <input type="text" placeholder="Search orders..." class="form-control" style="max-width: 300px;">
+                        <select class="form-control" style="max-width: 150px;">
+                            <option>Last 30 days</option>
+                            <option>Last 6 months</option>
+                            <option>2026</option>
+                        </select>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="history-table" style="min-width: 700px;">
+                            <thead>
+                                <tr>
+                                    <th>Order #</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD-9082</td>
+                                    <td>Oct 22, 2026</td>
+                                    <td><span class="status-badge processing">Processing</span></td>
+                                    <td>3 Items</td>
+                                    <td>$675.00</td>
+                                    <td><a href="#" class="text-link">Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-9021</td>
+                                    <td>Oct 15, 2026</td>
+                                    <td><span class="status-badge delivered">Delivered</span></td>
+                                    <td>3 Items</td>
+                                    <td>$675.00</td>
+                                    <td><a href="#" class="text-link">Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-8954</td>
+                                    <td>Oct 08, 2026</td>
+                                    <td><span class="status-badge delivered">Delivered</span></td>
+                                    <td>4 Items</td>
+                                    <td>$750.00</td>
+                                    <td><a href="#" class="text-link">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Track Shipments Section -->
+            <div id="track-shipments" class="dashboard-section">
+                <div class="tracking-card">
+                    <div class="tracking-header">
+                        <h3>Shipment #TRK-5521-09</h3>
+                        <span class="status-badge shipping">In Transit</span>
+                    </div>
+                    <div class="tracking-timeline">
+                        <div class="timeline-item active">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Order Placed</h4>
+                                <p>Oct 22, 10:45 AM</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item active">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Processing</h4>
+                                <p>Oct 22, 02:30 PM</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item active pulse">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>In Transit</h4>
+                                <p>Oct 23, 08:15 AM - Out for delivery</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Delivered</h4>
+                                <p>Expected Oct 24</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invoices Section -->
+            <div id="invoices" class="dashboard-section">
+                <div class="invoice-list">
+                    <div class="invoice-item">
+                        <div class="invoice-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <div class="invoice-details">
+                            <h4>Invoice #INV-2026-102</h4>
+                            <p>Due: Oct 30, 2026 | $675.00</p>
+                        </div>
+                        <div class="invoice-actions">
+                            <span class="status-badge unpaid">Unpaid</span>
+                            <button class="btn btn-outline">Download</button>
+                            <button class="btn">Pay Now</button>
+                        </div>
+                    </div>
+                    <div class="invoice-item">
+                        <div class="invoice-icon"><i class="fas fa-file-invoice"></i></div>
+                        <div class="invoice-details">
+                            <h4>Invoice #INV-2026-098</h4>
+                            <p>Paid: Oct 16, 2026 | $675.00</p>
+                        </div>
+                        <div class="invoice-actions">
+                            <span class="status-badge paid">Paid</span>
+                            <button class="btn btn-outline">Download</button>
+                        </div>
+                    </div>
+                    <div class="invoice-item">
+                        <div class="invoice-icon"><i class="fas fa-file-invoice"></i></div>
+                        <div class="invoice-details">
+                            <h4>Invoice #INV-2026-094</h4>
+                            <p>Paid: Oct 09, 2026 | $750.00</p>
+                        </div>
+                        <div class="invoice-actions">
+                            <span class="status-badge paid">Paid</span>
+                            <button class="btn btn-outline">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brewing Guides Section -->
+            <div id="brewing-guides" class="dashboard-section">
+                <div class="guides-grid">
+                    <div class="card guide-card">
+                        <img src="https://scitechdaily.com/images/Espresso-Machine-Brewing-Double-Shots.jpg" alt="Espresso" class="guide-img">
+                        <div class="guide-content">
+                            <h3>Espresso Extraction</h3>
+                            <p>Learn the secrets to the perfect 1:2 ratio espresso shot.</p>
+                            <a href="#" class="text-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card guide-card">
+                        <img src="https://i.shgcdn.com/4c4d5b36-1aab-4524-b205-10707662a4db/-/format/auto/-/preview/3000x3000/-/quality/lighter/" alt="V60" class="guide-img">
+                        <div class="guide-content">
+                            <h3>V60 Pour Over</h3>
+                            <p>Master the circular pour technique for clean, floral cups.</p>
+                            <a href="#" class="text-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card guide-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk_uWGK3l8zHwn9qnyIzIWb50HLQ18xuu8bQ&s" alt="Cold Brew" class="guide-img">
+                        <div class="guide-content">
+                            <h3>Cold Brew Batching</h3>
+                            <p>Scaling up your cold brew production for peak summer demand.</p>
+                            <a href="#" class="text-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card guide-card">
+                        <img src="https://www.ronita.com.au/cdn/shop/articles/grinder-blog-images-1200x675-portafilter_1024x1024_7b525213-f374-4df0-90af-664449a286f7_1024x.jpg?v=1626753441" alt="Grinder" class="guide-img">
+                        <div class="guide-content">
+                            <h3>Grinder Calibration</h3>
+                            <p>Weekly maintenance and burr alignment for consistency.</p>
+                            <a href="#" class="text-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card guide-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1C8DAxvQhcX4LnWqidPl6DS5IIbaWGAuTaw&s" alt="Chemex" class="guide-img">
+                        <div class="guide-content">
+                            <h3>Chemex Perfection</h3>
+                            <p>Master the science of the thick-bonded filter for a crystal clear cup.</p>
+                            <a href="#" class="text-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card guide-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSirB7wfgMAb1TvBvdVXo2yarv39AorWOa7Ng&s" alt="French Press" class="guide-img">
+                        <div class="guide-content">
+                            <h3>French Press Ritual</h3>
+                            <p>Unlock the full-bodied richness of immersion brewing with zero waste.</p>
+                            <a href="#" class="text-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Settings Section -->
+            <div id="account-settings" class="dashboard-section">
+                <div class="settings-container">
+                    <div class="settings-group">
+                        <h3>Shop Profile</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Shop Name</label>
+                                <input type="text" class="form-control" value="The Daily Grind">
+                            </div>
+                            <div class="form-group">
+                                <label>Business Email</label>
+                                <input type="email" class="form-control" value="orders@dailygrind.coffee">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" class="form-control" value="+1 (555) 123-4567">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3>Security</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Current Password</label>
+                                <input type="password" class="form-control" placeholder="••••••••">
+                            </div>
+                            <div class="form-group">
+                                <label>New Password</label>
+                                <input type="password" class="form-control" placeholder="Enter new password">
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button class="btn">Update Password</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
