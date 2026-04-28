@@ -73,7 +73,7 @@
             
             <ul class="sidebar-nav">
                 <li><a href="#" class="active" data-section="overview">Overview</a></li>
-                <li><a href="#" data-section="place-order">Place Order</a></li>
+                <li><a href="#" data-section="place-order">Place Order for</a></li>
                 <li><a href="#" data-section="order-history">Order History</a></li>
                 <li><a href="#" data-section="track-shipments">Track Shipments</a></li>
                 <li><a href="#" data-section="invoices">Invoices</a></li>
@@ -81,7 +81,12 @@
                 <li><a href="#" data-section="training-material">Training Material</a></li>
                 <li><a href="#" data-section="account-settings">Account Settings</a></li>
             </ul>
-            
+            <div class="sidebar-toggles" style="margin-bottom: 20px; display: none;">
+                <div style="display: flex; gap: 10px;">
+                    <button class="toggle-btn" id="rtl-toggle" aria-label="Toggle RTL" style="width: 100%;">RTL</button>
+                    <button class="toggle-btn" id="theme-toggle" aria-label="Toggle Dark Mode" style="width: 100%;">🌙</button>
+                </div>
+            </div>
 
             <div class="logout-container">
                 <button id="logout-btn" class="btn btn-outline" style="width: 100%; text-align: center;">Logout</button>
@@ -116,7 +121,7 @@
                 <div class="stat-cards">
                     <div class="stat-card">
                         <h3 style="color: var(--text-light); font-size: 1rem; margin-bottom: 10px; font-family: 'Inter', sans-serif;">Next Delivery</h3>
-                        <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Oct 24, 2026</h2>
+                        <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Oct 24</h2>
                         <p style="color: #28a745; font-weight: 500; font-size: 0.9rem;">Status: Processing</p>
                     </div>
                     <div class="stat-card">
@@ -169,20 +174,23 @@
             <div id="place-order" class="dashboard-section">
                 <div class="product-grid">
                     <div class="product-card">
-                        <div class="product-badge">Top Seller</div>
+                        <div class="product-badge">Wholesale Favorite</div>
                         <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=500&q=80" alt="Espresso Blend" class="product-img">
                         <div class="product-info">
-                            <h3>Midnight Espresso</h3>
-                            <p>Dark Roast | Notes of Cocoa & Molasses</p>
+                            <h3>Midnight Espresso Blend</h3>
+                            <p><strong>Roast:</strong> Dark | <strong>Notes:</strong> Cocoa & Molasses</p>
+                            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 8px;">Our flagship B2B blend. Optimized for high-volume espresso consistency and perfect for milk-based drinks.</p>
                             <div class="product-price">$15.00 / lb</div>
                             <button class="btn" style="width: 100%;">Add to Order</button>
                         </div>
                     </div>
                     <div class="product-card">
+                        <div class="product-badge">Single Origin</div>
                         <img src="https://images.unsplash.com/photo-1580915411954-282cb1b0d780?auto=format&fit=crop&w=500&q=80" alt="Ethiopia Yirgacheffe" class="product-img">
                         <div class="product-info">
                             <h3>Ethiopia Yirgacheffe</h3>
-                            <p>Light Roast | Notes of Jasmine & Lemon</p>
+                            <p><strong>Roast:</strong> Light | <strong>Notes:</strong> Jasmine & Lemon</p>
+                            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 8px;">Directly sourced from the Gedeo zone. Lightly roasted to highlight the complex floral terroir of heirloom varieties.</p>
                             <div class="product-price">$18.00 / lb</div>
                             <button class="btn" style="width: 100%;">Add to Order</button>
                         </div>
@@ -191,7 +199,8 @@
                         <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=500&q=80" alt="House Blend" class="product-img">
                         <div class="product-info">
                             <h3>Heritage House Blend</h3>
-                            <p>Medium Roast | Notes of Nut & Caramel</p>
+                            <p><strong>Roast:</strong> Medium | <strong>Notes:</strong> Nut & Caramel</p>
+                            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 8px;">The ultimate cafe staple. A balanced blend of direct-trade beans from Colombia and Honduras, perfect for batch brewing.</p>
                             <div class="product-price">$14.00 / lb</div>
                             <button class="btn" style="width: 100%;">Add to Order</button>
                         </div>
@@ -199,9 +208,31 @@
                     <div class="product-card">
                         <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=500&q=80" alt="Decaf Colombia" class="product-img">
                         <div class="product-info">
-                            <h3>Decaf Colombia</h3>
-                            <p>Swiss Water Process | Notes of Red Fruit & Vanilla</p>
+                            <h3>Decaf Colombia Select</h3>
+                            <p><strong>Process:</strong> Swiss Water | <strong>Notes:</strong> Red Fruit & Vanilla</p>
+                            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 8px;">Premium chemical-free decaf. Retains the full body and sweetness of Antioquia beans without the caffeine.</p>
                             <div class="product-price">$16.00 / lb</div>
+                            <button class="btn" style="width: 100%;">Add to Order</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-badge">Direct Trade</div>
+                        <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=500&q=80" alt="Guatemala Antigua" class="product-img">
+                        <div class="product-info">
+                            <h3>Guatemala Antigua</h3>
+                            <p><strong>Roast:</strong> Medium-Dark | <strong>Notes:</strong> Spice & Chocolate</p>
+                            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 8px;">Grown in volcanic soil at 1,500m. A complex B2B favorite sourced through our long-term sustainable farming partnership.</p>
+                            <div class="product-price">$17.00 / lb</div>
+                            <button class="btn" style="width: 100%;">Add to Order</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1580915411954-282cb1b0d780?auto=format&fit=crop&w=500&q=80" alt="Sumatra Mandheling" class="product-img">
+                        <div class="product-info">
+                            <h3>Sumatra Mandheling</h3>
+                            <p><strong>Roast:</strong> Dark | <strong>Notes:</strong> Earth & Herbs</p>
+                            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 8px;">Giling Basah processed for a syrupy body. Sourced from smallholder cooperatives in the Gayo Highlands for rich, deep profiles.</p>
+                            <div class="product-price">$16.50 / lb</div>
                             <button class="btn" style="width: 100%;">Add to Order</button>
                         </div>
                     </div>
@@ -267,7 +298,7 @@
                 <div class="tracking-card">
                     <div class="tracking-header">
                         <h3>Shipment #TRK-5521-09</h3>
-                        <span class="status-badge shipping">In Transit</span>
+                        <span class="status-badge shipping">Transit</span>
                     </div>
                     <div class="tracking-timeline">
                         <div class="timeline-item active">
@@ -314,7 +345,6 @@
                         <div class="invoice-actions">
                             <span class="status-badge unpaid">Unpaid</span>
                             <button class="btn btn-outline">Download</button>
-                            <button class="btn">Pay Now</button>
                         </div>
                     </div>
                     <div class="invoice-item">

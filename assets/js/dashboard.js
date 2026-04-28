@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Special case for Overview title
             if (sectionId === 'overview') {
-                const overviewTitle = "Welcome Back, The Daily Grind";
+                const overviewTitle = "Overview";
                 sectionTitle.textContent = overviewTitle;
                 if (sectionTitleMobile) sectionTitleMobile.textContent = overviewTitle;
             }
@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logoutBtn) {
         logoutBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Logging out...');
             window.location.href = 'index.html';
         });
     }
