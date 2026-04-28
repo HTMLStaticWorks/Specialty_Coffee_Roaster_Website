@@ -62,7 +62,11 @@
                         <option>100+ lbs</option>
                     </select>
                 </div>
-                <button type="submit" class="btn" style="width: 100%; margin-top: 10px; margin-bottom: 20px;">Submit Application</button>
+                <div class="form-group checkbox-group" style="display: flex; align-items: flex-start; gap: 10px; margin-top: 10px;">
+                    <input type="checkbox" id="terms" required style="width: auto; margin-top: 5px;">
+                    <label for="terms" style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-light);">I agree to the <a href="#" style="color: var(--secondary); text-decoration: underline;">Terms & Conditions</a> and <a href="#" style="color: var(--secondary); text-decoration: underline;">Privacy Policy</a></label>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; margin-top: 20px; margin-bottom: 20px;">Submit Application</button>
             </form>
 
             <div class="auth-divider">or register with</div>
@@ -80,6 +84,7 @@
             
             <p style="color: var(--text-light); font-size: 0.9rem;">Already a partner? <a href="login.html" style="color: var(--secondary); font-weight: bold;">Login Here</a></p>
             <div style="margin-top: 20px;">
+                <a href="index.html" style="color: var(--text-light); font-size: 0.9rem;">&larr; Back to Home</a>
             </div>
         </div>
     </div>

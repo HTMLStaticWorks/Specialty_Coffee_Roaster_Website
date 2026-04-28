@@ -295,9 +295,39 @@
             @media (max-width: 600px) {
                 .bento-grid {
                     grid-template-columns: 1fr;
+                    gap: 15px;
                 }
                 .bento-item.large, .bento-item.wide {
                     grid-column: span 1;
+                }
+                .bento-item {
+                    height: auto !important;
+                    min-height: 320px !important;
+                }
+                .bento-content {
+                    padding: 20px !important;
+                }
+                .bento-content h3 {
+                    font-size: 1.5rem !important;
+                }
+                .bento-content p {
+                    font-size: 0.9rem !important;
+                }
+                .bento-glass {
+                    padding: 20px !important;
+                }
+                .bento-item.wide {
+                    padding: 20px !important;
+                }
+                .bento-item.wide h3 {
+                    font-size: 1.4rem !important;
+                }
+                .bento-item.wide p {
+                    font-size: 0.85rem !important;
+                }
+                .bento-item.wide div:first-child {
+                    font-size: 2.5rem !important;
+                    margin-bottom: 10px !important;
                 }
             }
             /* New Responsive Fixes */
@@ -328,23 +358,28 @@
                         <img src="https://genioroasters.com/cdn/shop/files/genio-3-micro-roaster-769719.jpg?v=1731496772&width=3840" 
                              alt="Roasting Equipment" 
                              style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="bento-content">
+                        <div class="bento-content" style="text-align: center;">
                             <h3 style="color: white; font-size: 2.2rem; margin-bottom: 15px;">Smart Roasting Systems</h3>
                             <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; line-height: 1.6;">Our facility utilizes AI-driven thermal profiling to ensure that the delicate chemical reactions within each bean are executed with 99.9% consistency.</p>
                         </div>
                     </div>
                     
-                    <!-- Wide Dark Card -->
-                    <div class="bento-item wide" style="background-color: var(--primary); display: flex; align-items: center; padding: 40px;">
-                        <div style="flex: 1;">
-                            <h3 style="color: var(--secondary); font-size: 1.8rem; margin-bottom: 15px;">Batch Traceability</h3>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 1rem; line-height: 1.7;">Every bag we ship contains a unique QR code linking back to the exact roast date, humidity levels, and moisture loss data of that specific batch.</p>
+                    <!-- Wide Dark Card with Image Background -->
+                    <div class="bento-item wide">
+                        <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=2070&auto=format&fit=crop" 
+                             alt="Batch Traceability" 
+                             style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4);">
+                        <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; z-index: 2;">
+                            <div style="font-size: 4rem; opacity: 0.6; transform: rotate(15deg); margin-bottom: 20px; color: var(--secondary);">📉</div>
+                            <div>
+                                <h3 style="color: white; font-size: 1.8rem; margin-bottom: 15px;">Batch Traceability</h3>
+                                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.7;">Every bag we ship contains a unique QR code linking back to the exact roast date, humidity levels, and moisture loss data of that specific batch.</p>
+                            </div>
                         </div>
-                        <div style="font-size: 4rem; opacity: 0.2; transform: rotate(15deg);">📉</div>
                     </div>
                     
                     <!-- Glassmorphism Stat Card -->
-                    <div class="bento-item bento-glass" style="background: linear-gradient(135deg, var(--secondary) 0%, #8C5A35 100%); border: none;">
+                    <div class="bento-item bento-glass" style="background: linear-gradient(135deg, var(--secondary) 0%, #8C5A35 100%); border: none; text-align: center; align-items: center;">
                         <div style="font-size: 3rem; margin-bottom: 20px; color: #121212;">98%</div>
                         <h4 style="color: #121212; font-size: 1.3rem; margin-bottom: 10px;">Efficiency Rate</h4>
                         <p style="color: rgba(18,18,18,0.7); font-size: 0.95rem;">Sustainable energy usage through innovative heat recirculation technology.</p>
@@ -423,10 +458,10 @@
                 <div class="footer-col">
                     <h3>Contact Info</h3>
                     <ul class="footer-links">
-                        <li>📍 123 Roastery Ave, Coffee City, 90210</li>
-                        <li>📞 +1 (555) 123-4567</li>
-                        <li>✉️ wholesale@coffeeroaster.com</li>
-                        <li>🕒 Mon - Fri: 8:00 AM - 5:00 PM</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span>123 Roastery Ave, Coffee City, 90210</span></li>
+                        <li><i class="fas fa-phone"></i> <span>+1 (555) 123-4567</span></li>
+                        <li><i class="fas fa-envelope"></i> <span>wholesale@coffeeroaster.com</span></li>
+                        <li><i class="fas fa-clock"></i> <span>Mon - Fri: 8:00 AM - 5:00 PM</span></li>
                     </ul>
                 </div>
             </div>

@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="%23D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>'>
+    <link rel="icon" type="image/svg+xml"
+        href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="%23D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>'>
     <title>Seeds | About Us</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -16,9 +17,11 @@
             flex-direction: column;
             align-items: center;
         }
+
         .card-btn {
             margin: 0 auto;
         }
+
         /* Center content columns in split sections */
         .split-content-center {
             display: flex;
@@ -26,6 +29,33 @@
             align-items: center;
             text-align: center;
             justify-content: center;
+        }
+
+        @media (max-width: 1100px) {
+            .hero {
+                height: auto !important;
+                min-height: 400px !important;
+                aspect-ratio: 16 / 7 !important;
+                background-size: 100% 100% !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: auto !important;
+                min-height: 300px !important;
+                aspect-ratio: 16 / 9 !important;
+                background-size: 100% 100% !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: auto !important;
+                min-height: 250px !important;
+                aspect-ratio: 4 / 3 !important;
+                background-size: 100% 100% !important;
+            }
         }
     </style>
 </head>
@@ -73,11 +103,9 @@
             style="height: 65vh; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/about page.png'); background-position: center; background-size: cover; display: flex; align-items: center; text-align: center;">
             <div class="container">
                 <div class="hero-content" style="max-width: 900px; margin: 0 auto;">
-                    <h1
-                        style="color: white; margin-bottom: 25px; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                    <h1 style="color: white; margin-bottom: 25px; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">
                         Our Story</h1>
-                    <p
-                        style="color: #F5F5F5; line-height: 1.6; text-shadow: 0 2px 5px rgba(0,0,0,0.3);">
+                    <p style="color: #F5F5F5; line-height: 1.6; text-shadow: 0 2px 5px rgba(0,0,0,0.3);">
                         Rooted in passion, driven by quality. A legacy of specialty coffee excellence since 2012.</p>
                 </div>
             </div>
@@ -85,14 +113,18 @@
 
         <!-- Section 2: Our Mission -->
         <section class="container" style="padding: 100px 20px;">
-            <div class="about-mission-container" style="display: flex; flex-wrap: wrap; gap: 50px; align-items: center;">
+            <div class="about-mission-container"
+                style="display: flex; flex-wrap: wrap; gap: 50px; align-items: center;">
                 <div style="flex: 1; min-width: 300px;">
                     <img src="https://static.vecteezy.com/system/resources/previews/053/847/660/non_2x/our-mission-message-written-on-white-paper-card-on-yellow-background-with-coffee-beans-conceptual-our-mission-symbol-photo.jpg"
                         alt="Roasting" style="width: 100%; border-radius: 12px; box-shadow: var(--shadow-hover);">
                 </div>
                 <div class="mission-content split-content-center" style="flex: 1; min-width: 300px;">
                     <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: var(--primary);">Our Mission</h2>
-                    <p style="font-size: 1.1rem; margin-bottom: 20px; color: var(--text-light);">We founded Seeds with a singular vision: to bridge the gap between exceptional coffee farmers and passionate cafe owners. We believe that every cup tells a story of its origin, and it's our responsibility to roast and present it with utmost respect.</p>
+                    <p style="font-size: 1.1rem; margin-bottom: 20px; color: var(--text-light);">We founded Seeds with a
+                        singular vision: to bridge the gap between exceptional coffee farmers and passionate cafe
+                        owners. We believe that every cup tells a story of its origin, and it's our responsibility to
+                        roast and present it with utmost respect.</p>
                     <p style="font-size: 1.1rem; margin-bottom: 30px; color: var(--text-light);">By focusing exclusively
                         on wholesale, we dedicate all our resources to supporting your business. From sourcing the
                         finest beans to comprehensive training, we are your partners in coffee excellence.</p>
@@ -129,8 +161,8 @@
                         </div>
                     </div>
                     <div class="card">
-                        <img src="images/Environmental Stewardship.png"
-                            alt="Sustainability" class="card-img" style="height: 250px; object-fit: cover;">
+                        <img src="images/Environmental Stewardship.png" alt="Sustainability" class="card-img"
+                            style="height: 250px; object-fit: cover;">
                         <div class="card-content">
                             <h3 class="card-title">Environmental Stewardship</h3>
                             <p class="card-text">Committed to sustainable practices throughout our entire supply chain
@@ -143,7 +175,8 @@
                             alt="Community" class="card-img" style="height: 250px; object-fit: cover;">
                         <div class="card-content">
                             <h3 class="card-title">Community Focus</h3>
-                            <p class="card-text">We build lasting relationships with our wholesale partners, growing together in the coffee industry.</p>
+                            <p class="card-text">We build lasting relationships with our wholesale partners, growing
+                                together in the coffee industry.</p>
                             <a href="#" class="btn btn-outline card-btn">Read More</a>
                         </div>
                     </div>
@@ -152,7 +185,8 @@
                             alt="Innovation" class="card-img" style="height: 250px; object-fit: cover;">
                         <div class="card-content">
                             <h3 class="card-title">Relentless Innovation</h3>
-                            <p class="card-text">Constantly experimenting with roast profiles and extraction methods to push the boundaries of specialty coffee.</p>
+                            <p class="card-text">Constantly experimenting with roast profiles and extraction methods to
+                                push the boundaries of specialty coffee.</p>
                             <a href="#" class="btn btn-outline card-btn">Read More</a>
                         </div>
                     </div>
@@ -161,7 +195,8 @@
                             alt="Partnership" class="card-img" style="height: 250px; object-fit: cover;">
                         <div class="card-content">
                             <h3 class="card-title">Mutual Growth</h3>
-                            <p class="card-text">Our success is defined by the success of our partners. We invest in your growth through constant education.</p>
+                            <p class="card-text">Our success is defined by the success of our partners. We invest in
+                                your growth through constant education.</p>
                             <a href="#" class="btn btn-outline card-btn">Read More</a>
                         </div>
                     </div>
@@ -229,26 +264,28 @@
                 </div>
                 <div class="card expert-card"
                     style="border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); background-color: var(--card-bg); text-align: center; transition: transform 0.3s ease;">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Sophia Thorne"
-                        style="width: 100%; height: 280px; object-fit: cover; display: block;">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
+                        alt="Sophia Thorne" style="width: 100%; height: 280px; object-fit: cover; display: block;">
                     <div style="padding: 30px 20px;">
                         <h3 style="margin-bottom: 5px; font-size: 1.4rem;">Sophia Thorne</h3>
                         <p
                             style="color: var(--secondary); font-weight: 600; margin-bottom: 15px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">
                             Sustainability Lead</p>
-                        <p style="color: var(--text-light); font-size: 0.95rem; line-height: 1.6;">Driving our commitment to carbon-neutral operations.</p>
+                        <p style="color: var(--text-light); font-size: 0.95rem; line-height: 1.6;">Driving our
+                            commitment to carbon-neutral operations.</p>
                     </div>
                 </div>
                 <div class="card expert-card"
                     style="border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); background-color: var(--card-bg); text-align: center; transition: transform 0.3s ease;">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="James Miller"
-                        style="width: 100%; height: 280px; object-fit: cover; display: block;">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80"
+                        alt="James Miller" style="width: 100%; height: 280px; object-fit: cover; display: block;">
                     <div style="padding: 30px 20px;">
                         <h3 style="margin-bottom: 5px; font-size: 1.4rem;">James Miller</h3>
                         <p
                             style="color: var(--secondary); font-weight: 600; margin-bottom: 15px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">
                             Barista Trainer</p>
-                        <p style="color: var(--text-light); font-size: 0.95rem; line-height: 1.6;">Empowering your team with world-class extraction skills.</p>
+                        <p style="color: var(--text-light); font-size: 0.95rem; line-height: 1.6;">Empowering your team
+                            with world-class extraction skills.</p>
                     </div>
                 </div>
             </div>
@@ -260,12 +297,13 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <a href="index.html" class="logo" style="margin-bottom: 20px;">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
-                          <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                          <line x1="6" y1="1" x2="6" y2="4"></line>
-                          <line x1="10" y1="1" x2="10" y2="4"></line>
-                          <line x1="14" y1="1" x2="14" y2="4"></line>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                            <line x1="6" y1="1" x2="6" y2="4"></line>
+                            <line x1="10" y1="1" x2="10" y2="4"></line>
+                            <line x1="14" y1="1" x2="14" y2="4"></line>
                         </svg>
                         Seeds
                     </a>
@@ -290,10 +328,10 @@
                 <div class="footer-col">
                     <h3>Contact Info</h3>
                     <ul class="footer-links">
-                        <li>📍 123 Roastery Ave, Coffee City, 90210</li>
-                        <li>📞 +1 (555) 123-4567</li>
-                        <li>✉️ wholesale@coffeeroaster.com</li>
-                        <li>🕒 Mon - Fri: 8:00 AM - 5:00 PM</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span>123 Roastery Ave, Coffee City, 90210</span></li>
+                        <li><i class="fas fa-phone"></i> <span>+1 (555) 123-4567</span></li>
+                        <li><i class="fas fa-envelope"></i> <span>wholesale@coffeeroaster.com</span></li>
+                        <li><i class="fas fa-clock"></i> <span>Mon - Fri: 8:00 AM - 5:00 PM</span></li>
                     </ul>
                 </div>
             </div>

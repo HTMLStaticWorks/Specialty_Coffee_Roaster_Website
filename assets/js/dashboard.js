@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'track-shipments': "Monitor your current deliveries in real-time.",
         'invoices': "Manage your billing and account statements.",
         'brewing-guides': "Master your bar with our extraction recipes.",
+        'training-material': "Access advanced resources to train your coffee professionals.",
         'account-settings': "Manage your profile, security, and preferences."
     };
 
